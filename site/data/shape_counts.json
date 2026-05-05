@@ -1,0 +1,86 @@
+[
+  {
+    "shape": "light",
+    "reports": 16565
+  },
+  {
+    "shape": "triangle",
+    "reports": 7865
+  },
+  {
+    "shape": "circle",
+    "reports": 7608
+  },
+  {
+    "shape": "unknown",
+    "reports": 7516
+  },
+  {
+    "shape": "fireball",
+    "reports": 6208
+  },
+  {
+    "shape": "other",
+    "reports": 5664
+  },
+  {
+    "shape": "sphere",
+    "reports": 5387
+  },
+  {
+    "shape": "disk",
+    "reports": 5213
+  },
+  {
+    "shape": "oval",
+    "reports": 3733
+  },
+  {
+    "shape": "formation",
+    "reports": 2457
+  },
+  {
+    "shape": "cigar",
+    "reports": 2057
+  },
+  {
+    "shape": "changing",
+    "reports": 1963
+  },
+  {
+    "shape": "flash",
+    "reports": 1328
+  },
+  {
+    "shape": "rectangle",
+    "reports": 1297
+  },
+  {
+    "shape": "cylinder",
+    "reports": 1283
+  },
+  {
+    "shape": "diamond",
+    "reports": 1178
+  },
+  {
+    "shape": "chevron",
+    "reports": 952
+  },
+  {
+    "shape": "egg",
+    "reports": 759
+  },
+  {
+    "shape": "teardrop",
+    "reports": 750
+  },
+  {
+    "shape": "cone",
+    "reports": 316
+  },
+  {
+    "shape": "cross",
+    "reports": 233
+  }
+]

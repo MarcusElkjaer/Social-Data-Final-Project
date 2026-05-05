@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430">
+    <style>
+      .bg { fill: #fffdf8; }
+      .axis { stroke: #d8d0c2; stroke-width: 1; }
+      .grid { stroke: #eee7da; stroke-width: 1; }
+      .label { fill: #62706c; font: 12px system-ui, sans-serif; }
+      .title { fill: #17201d; font: 700 18px system-ui, sans-serif; }
+      .note { fill: #7a5d2a; font: 700 12px system-ui, sans-serif; }
+    </style>
+    <rect width="900" height="430" class="bg"/><text x="64" y="26" class="title">Persistent hotspot bins: total reports vs active years</text><circle cx="719.8" cy="42.0" r="48.8" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="872.0" cy="46.9" r="53.6" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="657.6" cy="61.8" r="46.6" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="456.1" cy="61.8" r="38.8" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="431.1" cy="71.6" r="37.8" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="372.8" cy="76.6" r="35.0" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="254.6" cy="76.6" r="28.6" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="351.6" cy="86.5" r="34.0" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="308.2" cy="86.5" r="31.7" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="293.8" cy="91.4" r="30.9" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="240.5" cy="91.4" r="27.7" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><circle cx="282.4" cy="96.4" r="30.3" fill="#d65d47" fill-opacity="0.58" stroke="#7b2f23"/><line x1="64" y1="378" x2="872" y2="378" class="axis"/><line x1="64" y1="42" x2="64" y2="378" class="axis"/><text x="450.0" y="418" text-anchor="middle" class="label">total reports in bin</text><text x="18" y="215.0" text-anchor="middle" class="label">active years</text><text x="72" y="368" text-anchor="start" class="label">Each point is one high-persistence spatial bin.</text></svg>

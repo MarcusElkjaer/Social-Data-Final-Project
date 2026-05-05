@@ -1,0 +1,150 @@
+{
+  "raw_rows": 80332,
+  "clean_rows": 80332,
+  "valid_geo_rows": 80331,
+  "date_range": {
+    "min_year": 1906,
+    "max_year": 2014
+  },
+  "maven_stated_range": "1949-2014",
+  "issues": {
+    "bad_duration": 3,
+    "bad_or_missing_coordinates": 1
+  },
+  "top_country": {
+    "country": "United States",
+    "country_code": "us",
+    "reports": 65114
+  },
+  "top_shape": {
+    "shape": "light",
+    "reports": 16565
+  },
+  "duration_seconds": {
+    "median": 180.0,
+    "p95": 3600.0,
+    "p99": 14400.0
+  },
+  "top_words": [
+    {
+      "word": "light",
+      "count": 18123
+    },
+    {
+      "word": "lights",
+      "count": 17970
+    },
+    {
+      "word": "bright",
+      "count": 13358
+    },
+    {
+      "word": "moving",
+      "count": 9267
+    },
+    {
+      "word": "orange",
+      "count": 8941
+    },
+    {
+      "word": "white",
+      "count": 8174
+    },
+    {
+      "word": "red",
+      "count": 7959
+    },
+    {
+      "word": "shaped",
+      "count": 7060
+    },
+    {
+      "word": "craft",
+      "count": 5449
+    },
+    {
+      "word": "flying",
+      "count": 5026
+    },
+    {
+      "word": "large",
+      "count": 4397
+    },
+    {
+      "word": "night",
+      "count": 3963
+    },
+    {
+      "word": "green",
+      "count": 3756
+    },
+    {
+      "word": "across",
+      "count": 3586
+    },
+    {
+      "word": "hovering",
+      "count": 3489
+    },
+    {
+      "word": "blue",
+      "count": 3435
+    },
+    {
+      "word": "fast",
+      "count": 3430
+    },
+    {
+      "word": "triangle",
+      "count": 3392
+    },
+    {
+      "word": "star",
+      "count": 3353
+    },
+    {
+      "word": "shape",
+      "count": 3186
+    },
+    {
+      "word": "high",
+      "count": 2968
+    },
+    {
+      "word": "formation",
+      "count": 2946
+    },
+    {
+      "word": "speed",
+      "count": 2777
+    },
+    {
+      "word": "slowly",
+      "count": 2700
+    },
+    {
+      "word": "nuforc",
+      "count": 2598
+    },
+    {
+      "word": "note",
+      "count": 2596
+    },
+    {
+      "word": "triangular",
+      "count": 2548
+    },
+    {
+      "word": "glowing",
+      "count": 2519
+    },
+    {
+      "word": "low",
+      "count": 2494
+    },
+    {
+      "word": "ball",
+      "count": 2477
+    }
+  ]
+}

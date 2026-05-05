@@ -1,0 +1,1442 @@
+[
+  {
+    "month": 1,
+    "hour": 0,
+    "reports": 530
+  },
+  {
+    "month": 1,
+    "hour": 1,
+    "reports": 212
+  },
+  {
+    "month": 1,
+    "hour": 2,
+    "reports": 143
+  },
+  {
+    "month": 1,
+    "hour": 3,
+    "reports": 129
+  },
+  {
+    "month": 1,
+    "hour": 4,
+    "reports": 102
+  },
+  {
+    "month": 1,
+    "hour": 5,
+    "reports": 140
+  },
+  {
+    "month": 1,
+    "hour": 6,
+    "reports": 148
+  },
+  {
+    "month": 1,
+    "hour": 7,
+    "reports": 126
+  },
+  {
+    "month": 1,
+    "hour": 8,
+    "reports": 65
+  },
+  {
+    "month": 1,
+    "hour": 9,
+    "reports": 70
+  },
+  {
+    "month": 1,
+    "hour": 10,
+    "reports": 69
+  },
+  {
+    "month": 1,
+    "hour": 11,
+    "reports": 65
+  },
+  {
+    "month": 1,
+    "hour": 12,
+    "reports": 101
+  },
+  {
+    "month": 1,
+    "hour": 13,
+    "reports": 74
+  },
+  {
+    "month": 1,
+    "hour": 14,
+    "reports": 77
+  },
+  {
+    "month": 1,
+    "hour": 15,
+    "reports": 91
+  },
+  {
+    "month": 1,
+    "hour": 16,
+    "reports": 108
+  },
+  {
+    "month": 1,
+    "hour": 17,
+    "reports": 335
+  },
+  {
+    "month": 1,
+    "hour": 18,
+    "reports": 519
+  },
+  {
+    "month": 1,
+    "hour": 19,
+    "reports": 612
+  },
+  {
+    "month": 1,
+    "hour": 20,
+    "reports": 612
+  },
+  {
+    "month": 1,
+    "hour": 21,
+    "reports": 554
+  },
+  {
+    "month": 1,
+    "hour": 22,
+    "reports": 443
+  },
+  {
+    "month": 1,
+    "hour": 23,
+    "reports": 364
+  },
+  {
+    "month": 2,
+    "hour": 0,
+    "reports": 225
+  },
+  {
+    "month": 2,
+    "hour": 1,
+    "reports": 174
+  },
+  {
+    "month": 2,
+    "hour": 2,
+    "reports": 121
+  },
+  {
+    "month": 2,
+    "hour": 3,
+    "reports": 107
+  },
+  {
+    "month": 2,
+    "hour": 4,
+    "reports": 67
+  },
+  {
+    "month": 2,
+    "hour": 5,
+    "reports": 128
+  },
+  {
+    "month": 2,
+    "hour": 6,
+    "reports": 110
+  },
+  {
+    "month": 2,
+    "hour": 7,
+    "reports": 75
+  },
+  {
+    "month": 2,
+    "hour": 8,
+    "reports": 59
+  },
+  {
+    "month": 2,
+    "hour": 9,
+    "reports": 65
+  },
+  {
+    "month": 2,
+    "hour": 10,
+    "reports": 66
+  },
+  {
+    "month": 2,
+    "hour": 11,
+    "reports": 69
+  },
+  {
+    "month": 2,
+    "hour": 12,
+    "reports": 70
+  },
+  {
+    "month": 2,
+    "hour": 13,
+    "reports": 82
+  },
+  {
+    "month": 2,
+    "hour": 14,
+    "reports": 81
+  },
+  {
+    "month": 2,
+    "hour": 15,
+    "reports": 89
+  },
+  {
+    "month": 2,
+    "hour": 16,
+    "reports": 90
+  },
+  {
+    "month": 2,
+    "hour": 17,
+    "reports": 185
+  },
+  {
+    "month": 2,
+    "hour": 18,
+    "reports": 343
+  },
+  {
+    "month": 2,
+    "hour": 19,
+    "reports": 604
+  },
+  {
+    "month": 2,
+    "hour": 20,
+    "reports": 614
+  },
+  {
+    "month": 2,
+    "hour": 21,
+    "reports": 538
+  },
+  {
+    "month": 2,
+    "hour": 22,
+    "reports": 407
+  },
+  {
+    "month": 2,
+    "hour": 23,
+    "reports": 298
+  },
+  {
+    "month": 3,
+    "hour": 0,
+    "reports": 314
+  },
+  {
+    "month": 3,
+    "hour": 1,
+    "reports": 191
+  },
+  {
+    "month": 3,
+    "hour": 2,
+    "reports": 132
+  },
+  {
+    "month": 3,
+    "hour": 3,
+    "reports": 129
+  },
+  {
+    "month": 3,
+    "hour": 4,
+    "reports": 106
+  },
+  {
+    "month": 3,
+    "hour": 5,
+    "reports": 104
+  },
+  {
+    "month": 3,
+    "hour": 6,
+    "reports": 94
+  },
+  {
+    "month": 3,
+    "hour": 7,
+    "reports": 67
+  },
+  {
+    "month": 3,
+    "hour": 8,
+    "reports": 62
+  },
+  {
+    "month": 3,
+    "hour": 9,
+    "reports": 67
+  },
+  {
+    "month": 3,
+    "hour": 10,
+    "reports": 74
+  },
+  {
+    "month": 3,
+    "hour": 11,
+    "reports": 89
+  },
+  {
+    "month": 3,
+    "hour": 12,
+    "reports": 88
+  },
+  {
+    "month": 3,
+    "hour": 13,
+    "reports": 102
+  },
+  {
+    "month": 3,
+    "hour": 14,
+    "reports": 110
+  },
+  {
+    "month": 3,
+    "hour": 15,
+    "reports": 100
+  },
+  {
+    "month": 3,
+    "hour": 16,
+    "reports": 109
+  },
+  {
+    "month": 3,
+    "hour": 17,
+    "reports": 122
+  },
+  {
+    "month": 3,
+    "hour": 18,
+    "reports": 257
+  },
+  {
+    "month": 3,
+    "hour": 19,
+    "reports": 564
+  },
+  {
+    "month": 3,
+    "hour": 20,
+    "reports": 780
+  },
+  {
+    "month": 3,
+    "hour": 21,
+    "reports": 741
+  },
+  {
+    "month": 3,
+    "hour": 22,
+    "reports": 604
+  },
+  {
+    "month": 3,
+    "hour": 23,
+    "reports": 443
+  },
+  {
+    "month": 4,
+    "hour": 0,
+    "reports": 316
+  },
+  {
+    "month": 4,
+    "hour": 1,
+    "reports": 215
+  },
+  {
+    "month": 4,
+    "hour": 2,
+    "reports": 160
+  },
+  {
+    "month": 4,
+    "hour": 3,
+    "reports": 134
+  },
+  {
+    "month": 4,
+    "hour": 4,
+    "reports": 100
+  },
+  {
+    "month": 4,
+    "hour": 5,
+    "reports": 89
+  },
+  {
+    "month": 4,
+    "hour": 6,
+    "reports": 60
+  },
+  {
+    "month": 4,
+    "hour": 7,
+    "reports": 50
+  },
+  {
+    "month": 4,
+    "hour": 8,
+    "reports": 75
+  },
+  {
+    "month": 4,
+    "hour": 9,
+    "reports": 72
+  },
+  {
+    "month": 4,
+    "hour": 10,
+    "reports": 88
+  },
+  {
+    "month": 4,
+    "hour": 11,
+    "reports": 94
+  },
+  {
+    "month": 4,
+    "hour": 12,
+    "reports": 102
+  },
+  {
+    "month": 4,
+    "hour": 13,
+    "reports": 115
+  },
+  {
+    "month": 4,
+    "hour": 14,
+    "reports": 98
+  },
+  {
+    "month": 4,
+    "hour": 15,
+    "reports": 101
+  },
+  {
+    "month": 4,
+    "hour": 16,
+    "reports": 98
+  },
+  {
+    "month": 4,
+    "hour": 17,
+    "reports": 119
+  },
+  {
+    "month": 4,
+    "hour": 18,
+    "reports": 137
+  },
+  {
+    "month": 4,
+    "hour": 19,
+    "reports": 220
+  },
+  {
+    "month": 4,
+    "hour": 20,
+    "reports": 651
+  },
+  {
+    "month": 4,
+    "hour": 21,
+    "reports": 1036
+  },
+  {
+    "month": 4,
+    "hour": 22,
+    "reports": 836
+  },
+  {
+    "month": 4,
+    "hour": 23,
+    "reports": 561
+  },
+  {
+    "month": 5,
+    "hour": 0,
+    "reports": 346
+  },
+  {
+    "month": 5,
+    "hour": 1,
+    "reports": 219
+  },
+  {
+    "month": 5,
+    "hour": 2,
+    "reports": 165
+  },
+  {
+    "month": 5,
+    "hour": 3,
+    "reports": 150
+  },
+  {
+    "month": 5,
+    "hour": 4,
+    "reports": 131
+  },
+  {
+    "month": 5,
+    "hour": 5,
+    "reports": 74
+  },
+  {
+    "month": 5,
+    "hour": 6,
+    "reports": 30
+  },
+  {
+    "month": 5,
+    "hour": 7,
+    "reports": 37
+  },
+  {
+    "month": 5,
+    "hour": 8,
+    "reports": 50
+  },
+  {
+    "month": 5,
+    "hour": 9,
+    "reports": 81
+  },
+  {
+    "month": 5,
+    "hour": 10,
+    "reports": 94
+  },
+  {
+    "month": 5,
+    "hour": 11,
+    "reports": 88
+  },
+  {
+    "month": 5,
+    "hour": 12,
+    "reports": 119
+  },
+  {
+    "month": 5,
+    "hour": 13,
+    "reports": 124
+  },
+  {
+    "month": 5,
+    "hour": 14,
+    "reports": 118
+  },
+  {
+    "month": 5,
+    "hour": 15,
+    "reports": 100
+  },
+  {
+    "month": 5,
+    "hour": 16,
+    "reports": 112
+  },
+  {
+    "month": 5,
+    "hour": 17,
+    "reports": 124
+  },
+  {
+    "month": 5,
+    "hour": 18,
+    "reports": 122
+  },
+  {
+    "month": 5,
+    "hour": 19,
+    "reports": 193
+  },
+  {
+    "month": 5,
+    "hour": 20,
+    "reports": 445
+  },
+  {
+    "month": 5,
+    "hour": 21,
+    "reports": 890
+  },
+  {
+    "month": 5,
+    "hour": 22,
+    "reports": 853
+  },
+  {
+    "month": 5,
+    "hour": 23,
+    "reports": 627
+  },
+  {
+    "month": 6,
+    "hour": 0,
+    "reports": 570
+  },
+  {
+    "month": 6,
+    "hour": 1,
+    "reports": 369
+  },
+  {
+    "month": 6,
+    "hour": 2,
+    "reports": 305
+  },
+  {
+    "month": 6,
+    "hour": 3,
+    "reports": 255
+  },
+  {
+    "month": 6,
+    "hour": 4,
+    "reports": 141
+  },
+  {
+    "month": 6,
+    "hour": 5,
+    "reports": 82
+  },
+  {
+    "month": 6,
+    "hour": 6,
+    "reports": 55
+  },
+  {
+    "month": 6,
+    "hour": 7,
+    "reports": 52
+  },
+  {
+    "month": 6,
+    "hour": 8,
+    "reports": 65
+  },
+  {
+    "month": 6,
+    "hour": 9,
+    "reports": 90
+  },
+  {
+    "month": 6,
+    "hour": 10,
+    "reports": 155
+  },
+  {
+    "month": 6,
+    "hour": 11,
+    "reports": 139
+  },
+  {
+    "month": 6,
+    "hour": 12,
+    "reports": 222
+  },
+  {
+    "month": 6,
+    "hour": 13,
+    "reports": 186
+  },
+  {
+    "month": 6,
+    "hour": 14,
+    "reports": 168
+  },
+  {
+    "month": 6,
+    "hour": 15,
+    "reports": 199
+  },
+  {
+    "month": 6,
+    "hour": 16,
+    "reports": 177
+  },
+  {
+    "month": 6,
+    "hour": 17,
+    "reports": 196
+  },
+  {
+    "month": 6,
+    "hour": 18,
+    "reports": 220
+  },
+  {
+    "month": 6,
+    "hour": 19,
+    "reports": 315
+  },
+  {
+    "month": 6,
+    "hour": 20,
+    "reports": 564
+  },
+  {
+    "month": 6,
+    "hour": 21,
+    "reports": 1128
+  },
+  {
+    "month": 6,
+    "hour": 22,
+    "reports": 1395
+  },
+  {
+    "month": 6,
+    "hour": 23,
+    "reports": 1082
+  },
+  {
+    "month": 7,
+    "hour": 0,
+    "reports": 681
+  },
+  {
+    "month": 7,
+    "hour": 1,
+    "reports": 478
+  },
+  {
+    "month": 7,
+    "hour": 2,
+    "reports": 323
+  },
+  {
+    "month": 7,
+    "hour": 3,
+    "reports": 268
+  },
+  {
+    "month": 7,
+    "hour": 4,
+    "reports": 166
+  },
+  {
+    "month": 7,
+    "hour": 5,
+    "reports": 97
+  },
+  {
+    "month": 7,
+    "hour": 6,
+    "reports": 36
+  },
+  {
+    "month": 7,
+    "hour": 7,
+    "reports": 46
+  },
+  {
+    "month": 7,
+    "hour": 8,
+    "reports": 60
+  },
+  {
+    "month": 7,
+    "hour": 9,
+    "reports": 93
+  },
+  {
+    "month": 7,
+    "hour": 10,
+    "reports": 131
+  },
+  {
+    "month": 7,
+    "hour": 11,
+    "reports": 130
+  },
+  {
+    "month": 7,
+    "hour": 12,
+    "reports": 153
+  },
+  {
+    "month": 7,
+    "hour": 13,
+    "reports": 151
+  },
+  {
+    "month": 7,
+    "hour": 14,
+    "reports": 178
+  },
+  {
+    "month": 7,
+    "hour": 15,
+    "reports": 167
+  },
+  {
+    "month": 7,
+    "hour": 16,
+    "reports": 133
+  },
+  {
+    "month": 7,
+    "hour": 17,
+    "reports": 158
+  },
+  {
+    "month": 7,
+    "hour": 18,
+    "reports": 217
+  },
+  {
+    "month": 7,
+    "hour": 19,
+    "reports": 299
+  },
+  {
+    "month": 7,
+    "hour": 20,
+    "reports": 603
+  },
+  {
+    "month": 7,
+    "hour": 21,
+    "reports": 1625
+  },
+  {
+    "month": 7,
+    "hour": 22,
+    "reports": 2021
+  },
+  {
+    "month": 7,
+    "hour": 23,
+    "reports": 1328
+  },
+  {
+    "month": 8,
+    "hour": 0,
+    "reports": 580
+  },
+  {
+    "month": 8,
+    "hour": 1,
+    "reports": 395
+  },
+  {
+    "month": 8,
+    "hour": 2,
+    "reports": 286
+  },
+  {
+    "month": 8,
+    "hour": 3,
+    "reports": 230
+  },
+  {
+    "month": 8,
+    "hour": 4,
+    "reports": 181
+  },
+  {
+    "month": 8,
+    "hour": 5,
+    "reports": 177
+  },
+  {
+    "month": 8,
+    "hour": 6,
+    "reports": 75
+  },
+  {
+    "month": 8,
+    "hour": 7,
+    "reports": 44
+  },
+  {
+    "month": 8,
+    "hour": 8,
+    "reports": 61
+  },
+  {
+    "month": 8,
+    "hour": 9,
+    "reports": 94
+  },
+  {
+    "month": 8,
+    "hour": 10,
+    "reports": 134
+  },
+  {
+    "month": 8,
+    "hour": 11,
+    "reports": 137
+  },
+  {
+    "month": 8,
+    "hour": 12,
+    "reports": 151
+  },
+  {
+    "month": 8,
+    "hour": 13,
+    "reports": 137
+  },
+  {
+    "month": 8,
+    "hour": 14,
+    "reports": 128
+  },
+  {
+    "month": 8,
+    "hour": 15,
+    "reports": 144
+  },
+  {
+    "month": 8,
+    "hour": 16,
+    "reports": 133
+  },
+  {
+    "month": 8,
+    "hour": 17,
+    "reports": 163
+  },
+  {
+    "month": 8,
+    "hour": 18,
+    "reports": 198
+  },
+  {
+    "month": 8,
+    "hour": 19,
+    "reports": 329
+  },
+  {
+    "month": 8,
+    "hour": 20,
+    "reports": 809
+  },
+  {
+    "month": 8,
+    "hour": 21,
+    "reports": 1498
+  },
+  {
+    "month": 8,
+    "hour": 22,
+    "reports": 1499
+  },
+  {
+    "month": 8,
+    "hour": 23,
+    "reports": 1055
+  },
+  {
+    "month": 9,
+    "hour": 0,
+    "reports": 359
+  },
+  {
+    "month": 9,
+    "hour": 1,
+    "reports": 265
+  },
+  {
+    "month": 9,
+    "hour": 2,
+    "reports": 190
+  },
+  {
+    "month": 9,
+    "hour": 3,
+    "reports": 191
+  },
+  {
+    "month": 9,
+    "hour": 4,
+    "reports": 165
+  },
+  {
+    "month": 9,
+    "hour": 5,
+    "reports": 190
+  },
+  {
+    "month": 9,
+    "hour": 6,
+    "reports": 122
+  },
+  {
+    "month": 9,
+    "hour": 7,
+    "reports": 86
+  },
+  {
+    "month": 9,
+    "hour": 8,
+    "reports": 82
+  },
+  {
+    "month": 9,
+    "hour": 9,
+    "reports": 100
+  },
+  {
+    "month": 9,
+    "hour": 10,
+    "reports": 111
+  },
+  {
+    "month": 9,
+    "hour": 11,
+    "reports": 100
+  },
+  {
+    "month": 9,
+    "hour": 12,
+    "reports": 114
+  },
+  {
+    "month": 9,
+    "hour": 13,
+    "reports": 93
+  },
+  {
+    "month": 9,
+    "hour": 14,
+    "reports": 109
+  },
+  {
+    "month": 9,
+    "hour": 15,
+    "reports": 120
+  },
+  {
+    "month": 9,
+    "hour": 16,
+    "reports": 132
+  },
+  {
+    "month": 9,
+    "hour": 17,
+    "reports": 181
+  },
+  {
+    "month": 9,
+    "hour": 18,
+    "reports": 254
+  },
+  {
+    "month": 9,
+    "hour": 19,
+    "reports": 654
+  },
+  {
+    "month": 9,
+    "hour": 20,
+    "reports": 1127
+  },
+  {
+    "month": 9,
+    "hour": 21,
+    "reports": 1245
+  },
+  {
+    "month": 9,
+    "hour": 22,
+    "reports": 919
+  },
+  {
+    "month": 9,
+    "hour": 23,
+    "reports": 679
+  },
+  {
+    "month": 10,
+    "hour": 0,
+    "reports": 319
+  },
+  {
+    "month": 10,
+    "hour": 1,
+    "reports": 289
+  },
+  {
+    "month": 10,
+    "hour": 2,
+    "reports": 215
+  },
+  {
+    "month": 10,
+    "hour": 3,
+    "reports": 162
+  },
+  {
+    "month": 10,
+    "hour": 4,
+    "reports": 133
+  },
+  {
+    "month": 10,
+    "hour": 5,
+    "reports": 148
+  },
+  {
+    "month": 10,
+    "hour": 6,
+    "reports": 177
+  },
+  {
+    "month": 10,
+    "hour": 7,
+    "reports": 135
+  },
+  {
+    "month": 10,
+    "hour": 8,
+    "reports": 108
+  },
+  {
+    "month": 10,
+    "hour": 9,
+    "reports": 103
+  },
+  {
+    "month": 10,
+    "hour": 10,
+    "reports": 108
+  },
+  {
+    "month": 10,
+    "hour": 11,
+    "reports": 88
+  },
+  {
+    "month": 10,
+    "hour": 12,
+    "reports": 93
+  },
+  {
+    "month": 10,
+    "hour": 13,
+    "reports": 101
+  },
+  {
+    "month": 10,
+    "hour": 14,
+    "reports": 120
+  },
+  {
+    "month": 10,
+    "hour": 15,
+    "reports": 123
+  },
+  {
+    "month": 10,
+    "hour": 16,
+    "reports": 175
+  },
+  {
+    "month": 10,
+    "hour": 17,
+    "reports": 220
+  },
+  {
+    "month": 10,
+    "hour": 18,
+    "reports": 421
+  },
+  {
+    "month": 10,
+    "hour": 19,
+    "reports": 884
+  },
+  {
+    "month": 10,
+    "hour": 20,
+    "reports": 1058
+  },
+  {
+    "month": 10,
+    "hour": 21,
+    "reports": 925
+  },
+  {
+    "month": 10,
+    "hour": 22,
+    "reports": 761
+  },
+  {
+    "month": 10,
+    "hour": 23,
+    "reports": 540
+  },
+  {
+    "month": 11,
+    "hour": 0,
+    "reports": 305
+  },
+  {
+    "month": 11,
+    "hour": 1,
+    "reports": 223
+  },
+  {
+    "month": 11,
+    "hour": 2,
+    "reports": 174
+  },
+  {
+    "month": 11,
+    "hour": 3,
+    "reports": 135
+  },
+  {
+    "month": 11,
+    "hour": 4,
+    "reports": 122
+  },
+  {
+    "month": 11,
+    "hour": 5,
+    "reports": 209
+  },
+  {
+    "month": 11,
+    "hour": 6,
+    "reports": 148
+  },
+  {
+    "month": 11,
+    "hour": 7,
+    "reports": 83
+  },
+  {
+    "month": 11,
+    "hour": 8,
+    "reports": 54
+  },
+  {
+    "month": 11,
+    "hour": 9,
+    "reports": 70
+  },
+  {
+    "month": 11,
+    "hour": 10,
+    "reports": 72
+  },
+  {
+    "month": 11,
+    "hour": 11,
+    "reports": 76
+  },
+  {
+    "month": 11,
+    "hour": 12,
+    "reports": 81
+  },
+  {
+    "month": 11,
+    "hour": 13,
+    "reports": 76
+  },
+  {
+    "month": 11,
+    "hour": 14,
+    "reports": 74
+  },
+  {
+    "month": 11,
+    "hour": 15,
+    "reports": 104
+  },
+  {
+    "month": 11,
+    "hour": 16,
+    "reports": 184
+  },
+  {
+    "month": 11,
+    "hour": 17,
+    "reports": 420
+  },
+  {
+    "month": 11,
+    "hour": 18,
+    "reports": 773
+  },
+  {
+    "month": 11,
+    "hour": 19,
+    "reports": 867
+  },
+  {
+    "month": 11,
+    "hour": 20,
+    "reports": 750
+  },
+  {
+    "month": 11,
+    "hour": 21,
+    "reports": 694
+  },
+  {
+    "month": 11,
+    "hour": 22,
+    "reports": 574
+  },
+  {
+    "month": 11,
+    "hour": 23,
+    "reports": 472
+  },
+  {
+    "month": 12,
+    "hour": 0,
+    "reports": 257
+  },
+  {
+    "month": 12,
+    "hour": 1,
+    "reports": 180
+  },
+  {
+    "month": 12,
+    "hour": 2,
+    "reports": 143
+  },
+  {
+    "month": 12,
+    "hour": 3,
+    "reports": 114
+  },
+  {
+    "month": 12,
+    "hour": 4,
+    "reports": 115
+  },
+  {
+    "month": 12,
+    "hour": 5,
+    "reports": 153
+  },
+  {
+    "month": 12,
+    "hour": 6,
+    "reports": 169
+  },
+  {
+    "month": 12,
+    "hour": 7,
+    "reports": 104
+  },
+  {
+    "month": 12,
+    "hour": 8,
+    "reports": 62
+  },
+  {
+    "month": 12,
+    "hour": 9,
+    "reports": 53
+  },
+  {
+    "month": 12,
+    "hour": 10,
+    "reports": 64
+  },
+  {
+    "month": 12,
+    "hour": 11,
+    "reports": 69
+  },
+  {
+    "month": 12,
+    "hour": 12,
+    "reports": 74
+  },
+  {
+    "month": 12,
+    "hour": 13,
+    "reports": 62
+  },
+  {
+    "month": 12,
+    "hour": 14,
+    "reports": 61
+  },
+  {
+    "month": 12,
+    "hour": 15,
+    "reports": 95
+  },
+  {
+    "month": 12,
+    "hour": 16,
+    "reports": 169
+  },
+  {
+    "month": 12,
+    "hour": 17,
+    "reports": 369
+  },
+  {
+    "month": 12,
+    "hour": 18,
+    "reports": 541
+  },
+  {
+    "month": 12,
+    "hour": 19,
+    "reports": 606
+  },
+  {
+    "month": 12,
+    "hour": 20,
+    "reports": 604
+  },
+  {
+    "month": 12,
+    "hour": 21,
+    "reports": 571
+  },
+  {
+    "month": 12,
+    "hour": 22,
+    "reports": 525
+  },
+  {
+    "month": 12,
+    "hour": 23,
+    "reports": 504
+  }
+]

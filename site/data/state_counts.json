@@ -1,0 +1,359 @@
+[
+  {
+    "state": "CA",
+    "state_name": "California",
+    "reports": 8912,
+    "population_2010": 37253956,
+    "reports_per_million": 239.22291635282974
+  },
+  {
+    "state": "WA",
+    "state_name": "Washington",
+    "reports": 3966,
+    "population_2010": 6724540,
+    "reports_per_million": 589.7801187887945
+  },
+  {
+    "state": "FL",
+    "state_name": "Florida",
+    "reports": 3835,
+    "population_2010": 18801310,
+    "reports_per_million": 203.9751485401815
+  },
+  {
+    "state": "TX",
+    "state_name": "Texas",
+    "reports": 3447,
+    "population_2010": 25145561,
+    "reports_per_million": 137.0818491581874
+  },
+  {
+    "state": "NY",
+    "state_name": "New York",
+    "reports": 2980,
+    "population_2010": 19378102,
+    "reports_per_million": 153.7818306457464
+  },
+  {
+    "state": "IL",
+    "state_name": "Illinois",
+    "reports": 2499,
+    "population_2010": 12830632,
+    "reports_per_million": 194.76827018341731
+  },
+  {
+    "state": "AZ",
+    "state_name": "Arizona",
+    "reports": 2414,
+    "population_2010": 6392017,
+    "reports_per_million": 377.6585700569945
+  },
+  {
+    "state": "PA",
+    "state_name": "Pennsylvania",
+    "reports": 2366,
+    "population_2010": 12702379,
+    "reports_per_million": 186.26432103781505
+  },
+  {
+    "state": "OH",
+    "state_name": "Ohio",
+    "reports": 2275,
+    "population_2010": 11536504,
+    "reports_per_million": 197.2001223247528
+  },
+  {
+    "state": "MI",
+    "state_name": "Michigan",
+    "reports": 1836,
+    "population_2010": 9883640,
+    "reports_per_million": 185.76152105904302
+  },
+  {
+    "state": "OR",
+    "state_name": "Oregon",
+    "reports": 1747,
+    "population_2010": 3831074,
+    "reports_per_million": 456.0078975242974
+  },
+  {
+    "state": "NC",
+    "state_name": "North Carolina",
+    "reports": 1740,
+    "population_2010": 9535483,
+    "reports_per_million": 182.47633601779793
+  },
+  {
+    "state": "MO",
+    "state_name": "Missouri",
+    "reports": 1458,
+    "population_2010": 5988927,
+    "reports_per_million": 243.4492856566794
+  },
+  {
+    "state": "CO",
+    "state_name": "Colorado",
+    "reports": 1413,
+    "population_2010": 5029196,
+    "reports_per_million": 280.9594217445492
+  },
+  {
+    "state": "IN",
+    "state_name": "Indiana",
+    "reports": 1288,
+    "population_2010": 6483802,
+    "reports_per_million": 198.64887916071467
+  },
+  {
+    "state": "VA",
+    "state_name": "Virginia",
+    "reports": 1273,
+    "population_2010": 8001024,
+    "reports_per_million": 159.10463460677033
+  },
+  {
+    "state": "MA",
+    "state_name": "Massachusetts",
+    "reports": 1256,
+    "population_2010": 6547629,
+    "reports_per_million": 191.82516297120682
+  },
+  {
+    "state": "GA",
+    "state_name": "Georgia",
+    "reports": 1255,
+    "population_2010": 9687653,
+    "reports_per_million": 129.54634110036764
+  },
+  {
+    "state": "NJ",
+    "state_name": "New Jersey",
+    "reports": 1255,
+    "population_2010": 8791894,
+    "reports_per_million": 142.74512408816577
+  },
+  {
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "reports": 1232,
+    "population_2010": 5686986,
+    "reports_per_million": 216.63496270256337
+  },
+  {
+    "state": "TN",
+    "state_name": "Tennessee",
+    "reports": 1119,
+    "population_2010": 6346105,
+    "reports_per_million": 176.32862992339395
+  },
+  {
+    "state": "MN",
+    "state_name": "Minnesota",
+    "reports": 1012,
+    "population_2010": 5303925,
+    "reports_per_million": 190.8020946751698
+  },
+  {
+    "state": "SC",
+    "state_name": "South Carolina",
+    "reports": 1003,
+    "population_2010": 4625364,
+    "reports_per_million": 216.84779835705902
+  },
+  {
+    "state": "CT",
+    "state_name": "Connecticut",
+    "reports": 892,
+    "population_2010": 3574097,
+    "reports_per_million": 249.5735286423396
+  },
+  {
+    "state": "KY",
+    "state_name": "Kentucky",
+    "reports": 855,
+    "population_2010": 4339367,
+    "reports_per_million": 197.033346107854
+  },
+  {
+    "state": "MD",
+    "state_name": "Maryland",
+    "reports": 837,
+    "population_2010": 5773552,
+    "reports_per_million": 144.97141447760407
+  },
+  {
+    "state": "NV",
+    "state_name": "Nevada",
+    "reports": 803,
+    "population_2010": 2700551,
+    "reports_per_million": 297.3467266494875
+  },
+  {
+    "state": "OK",
+    "state_name": "Oklahoma",
+    "reports": 724,
+    "population_2010": 3751351,
+    "reports_per_million": 192.99713623172025
+  },
+  {
+    "state": "NM",
+    "state_name": "New Mexico",
+    "reports": 720,
+    "population_2010": 2059179,
+    "reports_per_million": 349.65391546825214
+  },
+  {
+    "state": "IA",
+    "state_name": "Iowa",
+    "reports": 678,
+    "population_2010": 3046355,
+    "reports_per_million": 222.56106067743252
+  },
+  {
+    "state": "AL",
+    "state_name": "Alabama",
+    "reports": 642,
+    "population_2010": 4779736,
+    "reports_per_million": 134.31704177803962
+  },
+  {
+    "state": "UT",
+    "state_name": "Utah",
+    "reports": 622,
+    "population_2010": 2763885,
+    "reports_per_million": 225.04554277764814
+  },
+  {
+    "state": "KS",
+    "state_name": "Kansas",
+    "reports": 613,
+    "population_2010": 2853118,
+    "reports_per_million": 214.85266294629244
+  },
+  {
+    "state": "AR",
+    "state_name": "Arkansas",
+    "reports": 588,
+    "population_2010": 2915918,
+    "reports_per_million": 201.65176112634168
+  },
+  {
+    "state": "ME",
+    "state_name": "Maine",
+    "reports": 558,
+    "population_2010": 1328361,
+    "reports_per_million": 420.06653311863266
+  },
+  {
+    "state": "LA",
+    "state_name": "Louisiana",
+    "reports": 558,
+    "population_2010": 4533372,
+    "reports_per_million": 123.08718543283014
+  },
+  {
+    "state": "ID",
+    "state_name": "Idaho",
+    "reports": 521,
+    "population_2010": 1567582,
+    "reports_per_million": 332.3590089705036
+  },
+  {
+    "state": "NH",
+    "state_name": "New Hampshire",
+    "reports": 486,
+    "population_2010": 1316470,
+    "reports_per_million": 369.1690657591894
+  },
+  {
+    "state": "MT",
+    "state_name": "Montana",
+    "reports": 478,
+    "population_2010": 989415,
+    "reports_per_million": 483.1137591405022
+  },
+  {
+    "state": "WV",
+    "state_name": "West Virginia",
+    "reports": 448,
+    "population_2010": 1852994,
+    "reports_per_million": 241.77088538872766
+  },
+  {
+    "state": "NE",
+    "state_name": "Nebraska",
+    "reports": 381,
+    "population_2010": 1826341,
+    "reports_per_million": 208.6138349848139
+  },
+  {
+    "state": "MS",
+    "state_name": "Mississippi",
+    "reports": 375,
+    "population_2010": 2967297,
+    "reports_per_million": 126.37764268288613
+  },
+  {
+    "state": "AK",
+    "state_name": "Alaska",
+    "reports": 319,
+    "population_2010": 710231,
+    "reports_per_million": 449.1496428626743
+  },
+  {
+    "state": "HI",
+    "state_name": "Hawaii",
+    "reports": 262,
+    "population_2010": 1360301,
+    "reports_per_million": 192.60443093109538
+  },
+  {
+    "state": "VT",
+    "state_name": "Vermont",
+    "reports": 260,
+    "population_2010": 625741,
+    "reports_per_million": 415.507374456844
+  },
+  {
+    "state": "RI",
+    "state_name": "Rhode Island",
+    "reports": 228,
+    "population_2010": 1052567,
+    "reports_per_million": 216.61328922529395
+  },
+  {
+    "state": "SD",
+    "state_name": "South Dakota",
+    "reports": 183,
+    "population_2010": 814180,
+    "reports_per_million": 224.76602225552088
+  },
+  {
+    "state": "WY",
+    "state_name": "Wyoming",
+    "reports": 175,
+    "population_2010": 563626,
+    "reports_per_million": 310.48957996969625
+  },
+  {
+    "state": "DE",
+    "state_name": "Delaware",
+    "reports": 166,
+    "population_2010": 897934,
+    "reports_per_million": 184.86882109375523
+  },
+  {
+    "state": "ND",
+    "state_name": "North Dakota",
+    "reports": 129,
+    "population_2010": 672591,
+    "reports_per_million": 191.79560832660562
+  },
+  {
+    "state": "DC",
+    "state_name": "District of Columbia",
+    "reports": 7,
+    "population_2010": 601723,
+    "reports_per_million": 11.633259822210553
+  }
+]

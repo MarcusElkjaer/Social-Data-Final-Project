@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seeing Things</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="Project links">
+        <a href="#story">Story</a>
+        <a href="#hotspots">Hotspots</a>
+        <a href="notebooks/explainer.ipynb">Notebook</a>
+      </nav>
+      <div class="hero__content">
+        <p class="eyebrow">UFO reports as social data</p>
+        <h1>Seeing Things</h1>
+        <p class="subtitle">What 80,000 UFO reports reveal about people, places, and reporting bias.</p>
+      </div>
+      <svg id="hero-map" class="hero__map" role="img" aria-label="World map of UFO report density"></svg>
+    </header>
+
+    <main id="story">
+      <section class="chapter intro-grid">
+        <div>
+          <p class="kicker">A map of mystery</p>
+          <h2>At first glance, this looks like a map of UFO activity.</h2>
+          <p>
+            But every point is also a person deciding that something was strange enough to report.
+            The data is shaped by population, culture, language, internet access, memory, and geocoding.
+          </p>
+        </div>
+        <div class="metric-grid" id="summary-metrics"></div>
+      </section>
+
+      <section class="chapter split">
+        <div class="copy">
+          <p class="kicker">Data reality check</p>
+          <h2>This is report data, not alien data.</h2>
+          <p>
+            Maven describes this dataset as sightings between 1949 and 2014, but the raw archived file
+            contains earlier reports back to 1906. That mismatch is useful: it reminds us that this is a
+            messy historical record, not a perfect measurement instrument.
+          </p>
+          <div class="warning">
+            These are not verified events. They are public reports submitted by people and standardized
+            by a reporting pipeline.
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Top reported shapes</h3>
+          <svg id="shape-bars" class="chart" role="img" aria-label="Bar chart of top reported UFO shapes"></svg>
+        </div>
+      </section>
+
+      <section class="chapter split">
+        <div class="copy">
+          <p class="kicker">Time changed everything</p>
+          <h2>The sky gets louder in the internet era.</h2>
+          <p>
+            Reports rise sharply in the 1990s and 2000s. That pattern is consistent with easier online
+            reporting and growing visibility of UFO reporting systems, but the chart alone cannot prove
+            what caused the rise.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Reports by year</h3>
+          <svg id="annual-line" class="chart" role="img" aria-label="Line chart of UFO reports by year"></svg>
+        </div>
+      </section>
+
+      <section class="chapter split">
+        <div class="copy">
+          <p class="kicker">Human rhythms</p>
+          <h2>Sightings cluster when people are likely to be looking.</h2>
+          <p>
+            The month and hour pattern points toward observation opportunity: evening hours, darkness,
+            warm weather, and social activity all affect what gets noticed and reported.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Reports by month and hour</h3>
+          <svg id="heatmap" class="chart heatmap" role="img" aria-label="Heatmap of UFO reports by month and hour"></svg>
+        </div>
+      </section>
+
+      <section class="chapter split">
+        <div class="copy">
+          <p class="kicker">Raw counts mislead</p>
+          <h2>The United States dominates, but denominator matters.</h2>
+          <p>
+            Raw counts mostly show where the reporting system is strongest. A simple population-normalized
+            view changes the state ranking, although it is still an imperfect denominator for who was outside,
+            watching, and willing to submit a report.
+          </p>
+        </div>
+        <div class="panel panel--stack">
+          <h3>US states: raw reports vs reports per million people</h3>
+          <div class="toggle-row" role="group" aria-label="State chart mode">
+            <button class="mode-button active" data-state-mode="reports">Raw</button>
+            <button class="mode-button" data-state-mode="reports_per_million">Per million</button>
+          </div>
+          <svg id="state-bars" class="chart" role="img" aria-label="US state report ranking"></svg>
+        </div>
+      </section>
+
+      <section class="chapter split">
+        <div class="copy">
+          <p class="kicker">Language reveals the ordinary inside the strange</p>
+          <h2>People most often describe lights, motion, color, and formations.</h2>
+          <p>
+            The comment field is too messy for grand claims, but frequent words show the vocabulary of
+            observation. Reports are stories told under uncertainty.
+          </p>
+        </div>
+        <div class="panel">
+          <h3>Common words in comments</h3>
+          <div id="word-cloud" class="word-cloud" aria-label="Common UFO report words"></div>
+        </div>
+      </section>
+
+      <section class="chapter map-chapter" id="hotspots">
+        <div class="copy copy--wide">
+          <p class="kicker">Do hotspots persist?</p>
+          <h2>A burst is different from a place that keeps reappearing.</h2>
+          <p>
+            The map groups reports into approximate hex bins. Use the decade slider to see where reports
+            concentrate over time, or switch to persistence to highlight places that appear across many
+            different years.
+          </p>
+        </div>
+        <div class="map-shell">
+          <div class="map-controls">
+            <label for="decade-slider">Decade <span id="decade-label"></span></label>
+            <input id="decade-slider" type="range" min="1900" max="2010" step="10" value="2000">
+            <div class="toggle-row" role="group" aria-label="Map mode">
+              <button class="mode-button active" data-map-mode="reports">Decade count</button>
+              <button class="mode-button" data-map-mode="persistence">Persistence</button>
+            </div>
+          </div>
+          <svg id="hotspot-map" role="img" aria-label="Interactive hotspot persistence map"></svg>
+          <div id="tooltip" class="tooltip" hidden></div>
+        </div>
+      </section>
+
+      <section class="chapter conclusion">
+        <p class="kicker">What are we really seeing?</p>
+        <h2>The data does not answer whether UFOs are real.</h2>
+        <p>
+          It answers something more measurable: UFO reports are patterned by time, place, language,
+          visibility, population, and reporting infrastructure. The mystery is partly in the sky, but
+          partly in the reporting system.
+        </p>
+        <div class="reference-list">
+          <a href="https://mavenanalytics.io/data-playground/ufo-sightings">Maven dataset page</a>
+          <a href="https://zenodo.org/records/1205624">Archived NUFORC CSV</a>
+          <a href="https://idl.uw.edu/papers/narrative">Segel & Heer</a>
+          <a href="https://github.com/suneman/socialdata2026/wiki/Final-Project">Course requirements</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/d3.v7.min.js"></script>
+    <script src="assets/topojson-client.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

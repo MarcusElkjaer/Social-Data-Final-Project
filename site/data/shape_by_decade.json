@@ -1,0 +1,578 @@
+[
+  {
+    "decade": 1900,
+    "shape": "light",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1900,
+    "shape": "triangle",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1900,
+    "shape": "circle",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1900,
+    "shape": "unknown",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1900,
+    "shape": "fireball",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1900,
+    "shape": "other",
+    "reports": 1,
+    "share": 1.0
+  },
+  {
+    "decade": 1900,
+    "shape": "sphere",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1900,
+    "shape": "disk",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1910,
+    "shape": "light",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1910,
+    "shape": "triangle",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1910,
+    "shape": "circle",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1910,
+    "shape": "unknown",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1910,
+    "shape": "fireball",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1910,
+    "shape": "other",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1910,
+    "shape": "sphere",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1910,
+    "shape": "disk",
+    "reports": 1,
+    "share": 0.3333333333333333
+  },
+  {
+    "decade": 1920,
+    "shape": "light",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1920,
+    "shape": "triangle",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1920,
+    "shape": "circle",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1920,
+    "shape": "unknown",
+    "reports": 1,
+    "share": 0.3333333333333333
+  },
+  {
+    "decade": 1920,
+    "shape": "fireball",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1920,
+    "shape": "other",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1920,
+    "shape": "sphere",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1920,
+    "shape": "disk",
+    "reports": 2,
+    "share": 0.6666666666666666
+  },
+  {
+    "decade": 1930,
+    "shape": "light",
+    "reports": 2,
+    "share": 0.16666666666666666
+  },
+  {
+    "decade": 1930,
+    "shape": "triangle",
+    "reports": 1,
+    "share": 0.08333333333333333
+  },
+  {
+    "decade": 1930,
+    "shape": "circle",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1930,
+    "shape": "unknown",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1930,
+    "shape": "fireball",
+    "reports": 1,
+    "share": 0.08333333333333333
+  },
+  {
+    "decade": 1930,
+    "shape": "other",
+    "reports": 0,
+    "share": 0.0
+  },
+  {
+    "decade": 1930,
+    "shape": "sphere",
+    "reports": 1,
+    "share": 0.08333333333333333
+  },
+  {
+    "decade": 1930,
+    "shape": "disk",
+    "reports": 2,
+    "share": 0.16666666666666666
+  },
+  {
+    "decade": 1940,
+    "shape": "light",
+    "reports": 7,
+    "share": 0.06930693069306931
+  },
+  {
+    "decade": 1940,
+    "shape": "triangle",
+    "reports": 1,
+    "share": 0.009900990099009901
+  },
+  {
+    "decade": 1940,
+    "shape": "circle",
+    "reports": 9,
+    "share": 0.0891089108910891
+  },
+  {
+    "decade": 1940,
+    "shape": "unknown",
+    "reports": 10,
+    "share": 0.09900990099009901
+  },
+  {
+    "decade": 1940,
+    "shape": "fireball",
+    "reports": 2,
+    "share": 0.019801980198019802
+  },
+  {
+    "decade": 1940,
+    "shape": "other",
+    "reports": 6,
+    "share": 0.0594059405940594
+  },
+  {
+    "decade": 1940,
+    "shape": "sphere",
+    "reports": 7,
+    "share": 0.06930693069306931
+  },
+  {
+    "decade": 1940,
+    "shape": "disk",
+    "reports": 30,
+    "share": 0.297029702970297
+  },
+  {
+    "decade": 1950,
+    "shape": "light",
+    "reports": 45,
+    "share": 0.1048951048951049
+  },
+  {
+    "decade": 1950,
+    "shape": "triangle",
+    "reports": 8,
+    "share": 0.018648018648018648
+  },
+  {
+    "decade": 1950,
+    "shape": "circle",
+    "reports": 47,
+    "share": 0.10955710955710955
+  },
+  {
+    "decade": 1950,
+    "shape": "unknown",
+    "reports": 37,
+    "share": 0.08624708624708624
+  },
+  {
+    "decade": 1950,
+    "shape": "fireball",
+    "reports": 20,
+    "share": 0.046620046620046623
+  },
+  {
+    "decade": 1950,
+    "shape": "other",
+    "reports": 26,
+    "share": 0.06060606060606061
+  },
+  {
+    "decade": 1950,
+    "shape": "sphere",
+    "reports": 23,
+    "share": 0.053613053613053616
+  },
+  {
+    "decade": 1950,
+    "shape": "disk",
+    "reports": 125,
+    "share": 0.2913752913752914
+  },
+  {
+    "decade": 1960,
+    "shape": "light",
+    "reports": 150,
+    "share": 0.11494252873563218
+  },
+  {
+    "decade": 1960,
+    "shape": "triangle",
+    "reports": 58,
+    "share": 0.044444444444444446
+  },
+  {
+    "decade": 1960,
+    "shape": "circle",
+    "reports": 133,
+    "share": 0.10191570881226053
+  },
+  {
+    "decade": 1960,
+    "shape": "unknown",
+    "reports": 107,
+    "share": 0.08199233716475096
+  },
+  {
+    "decade": 1960,
+    "shape": "fireball",
+    "reports": 35,
+    "share": 0.02681992337164751
+  },
+  {
+    "decade": 1960,
+    "shape": "other",
+    "reports": 94,
+    "share": 0.07203065134099616
+  },
+  {
+    "decade": 1960,
+    "shape": "sphere",
+    "reports": 104,
+    "share": 0.07969348659003832
+  },
+  {
+    "decade": 1960,
+    "shape": "disk",
+    "reports": 318,
+    "share": 0.24367816091954023
+  },
+  {
+    "decade": 1970,
+    "shape": "light",
+    "reports": 292,
+    "share": 0.1226890756302521
+  },
+  {
+    "decade": 1970,
+    "shape": "triangle",
+    "reports": 196,
+    "share": 0.08235294117647059
+  },
+  {
+    "decade": 1970,
+    "shape": "circle",
+    "reports": 234,
+    "share": 0.09831932773109243
+  },
+  {
+    "decade": 1970,
+    "shape": "unknown",
+    "reports": 197,
+    "share": 0.08277310924369748
+  },
+  {
+    "decade": 1970,
+    "shape": "fireball",
+    "reports": 59,
+    "share": 0.024789915966386553
+  },
+  {
+    "decade": 1970,
+    "shape": "other",
+    "reports": 148,
+    "share": 0.06218487394957983
+  },
+  {
+    "decade": 1970,
+    "shape": "sphere",
+    "reports": 149,
+    "share": 0.06260504201680672
+  },
+  {
+    "decade": 1970,
+    "shape": "disk",
+    "reports": 546,
+    "share": 0.22941176470588234
+  },
+  {
+    "decade": 1980,
+    "shape": "light",
+    "reports": 227,
+    "share": 0.11030126336248786
+  },
+  {
+    "decade": 1980,
+    "shape": "triangle",
+    "reports": 265,
+    "share": 0.12876579203109814
+  },
+  {
+    "decade": 1980,
+    "shape": "circle",
+    "reports": 154,
+    "share": 0.07482993197278912
+  },
+  {
+    "decade": 1980,
+    "shape": "unknown",
+    "reports": 186,
+    "share": 0.09037900874635568
+  },
+  {
+    "decade": 1980,
+    "shape": "fireball",
+    "reports": 57,
+    "share": 0.027696793002915453
+  },
+  {
+    "decade": 1980,
+    "shape": "other",
+    "reports": 201,
+    "share": 0.09766763848396501
+  },
+  {
+    "decade": 1980,
+    "shape": "sphere",
+    "reports": 162,
+    "share": 0.07871720116618076
+  },
+  {
+    "decade": 1980,
+    "shape": "disk",
+    "reports": 291,
+    "share": 0.141399416909621
+  },
+  {
+    "decade": 1990,
+    "shape": "light",
+    "reports": 1565,
+    "share": 0.16985022791404383
+  },
+  {
+    "decade": 1990,
+    "shape": "triangle",
+    "reports": 1101,
+    "share": 0.11949207727371391
+  },
+  {
+    "decade": 1990,
+    "shape": "circle",
+    "reports": 603,
+    "share": 0.06544388973301497
+  },
+  {
+    "decade": 1990,
+    "shape": "unknown",
+    "reports": 1412,
+    "share": 0.15324506186238332
+  },
+  {
+    "decade": 1990,
+    "shape": "fireball",
+    "reports": 692,
+    "share": 0.07510310397221619
+  },
+  {
+    "decade": 1990,
+    "shape": "other",
+    "reports": 766,
+    "share": 0.08313436075537226
+  },
+  {
+    "decade": 1990,
+    "shape": "sphere",
+    "reports": 562,
+    "share": 0.060994139353158235
+  },
+  {
+    "decade": 1990,
+    "shape": "disk",
+    "reports": 622,
+    "share": 0.06750596917733884
+  },
+  {
+    "decade": 2000,
+    "shape": "light",
+    "reports": 8622,
+    "share": 0.2223196328193492
+  },
+  {
+    "decade": 2000,
+    "shape": "triangle",
+    "reports": 4002,
+    "share": 0.10319220256820175
+  },
+  {
+    "decade": 2000,
+    "shape": "circle",
+    "reports": 3398,
+    "share": 0.08761796709813831
+  },
+  {
+    "decade": 2000,
+    "shape": "unknown",
+    "reports": 3528,
+    "share": 0.09097003764633077
+  },
+  {
+    "decade": 2000,
+    "shape": "fireball",
+    "reports": 2203,
+    "share": 0.056804703212830696
+  },
+  {
+    "decade": 2000,
+    "shape": "other",
+    "reports": 2907,
+    "share": 0.07495745448919602
+  },
+  {
+    "decade": 2000,
+    "shape": "sphere",
+    "reports": 2355,
+    "share": 0.06072404723840957
+  },
+  {
+    "decade": 2000,
+    "shape": "disk",
+    "reports": 2351,
+    "share": 0.060620906606157494
+  },
+  {
+    "decade": 2010,
+    "shape": "light",
+    "reports": 5655,
+    "share": 0.21713254492397482
+  },
+  {
+    "decade": 2010,
+    "shape": "triangle",
+    "reports": 2233,
+    "share": 0.08573951773921057
+  },
+  {
+    "decade": 2010,
+    "shape": "circle",
+    "reports": 3030,
+    "share": 0.11634157579480879
+  },
+  {
+    "decade": 2010,
+    "shape": "unknown",
+    "reports": 2038,
+    "share": 0.0782521886039011
+  },
+  {
+    "decade": 2010,
+    "shape": "fireball",
+    "reports": 3139,
+    "share": 0.12052680079864844
+  },
+  {
+    "decade": 2010,
+    "shape": "other",
+    "reports": 1515,
+    "share": 0.058170787897404395
+  },
+  {
+    "decade": 2010,
+    "shape": "sphere",
+    "reports": 2024,
+    "share": 0.07771463676854554
+  },
+  {
+    "decade": 2010,
+    "shape": "disk",
+    "reports": 925,
+    "share": 0.035516817693134695
+  }
+]

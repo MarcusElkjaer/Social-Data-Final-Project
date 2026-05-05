@@ -1,0 +1,32 @@
+[
+  {
+    "country": "United States",
+    "country_code": "us",
+    "reports": 65114
+  },
+  {
+    "country": "UNKNOWN",
+    "country_code": "unknown",
+    "reports": 9670
+  },
+  {
+    "country": "Canada",
+    "country_code": "ca",
+    "reports": 3000
+  },
+  {
+    "country": "United Kingdom",
+    "country_code": "gb",
+    "reports": 1905
+  },
+  {
+    "country": "Australia",
+    "country_code": "au",
+    "reports": 538
+  },
+  {
+    "country": "Germany",
+    "country_code": "de",
+    "reports": 105
+  }
+]
