@@ -1,0 +1,104 @@
+{
+  "bounds": {
+    "min_latitude": 36.7,
+    "max_latitude": 37.7,
+    "min_longitude": -116.5,
+    "max_longitude": -115.0
+  },
+  "nearby_reports": 20,
+  "nearby_us_reports": 16,
+  "nevada_reports": 803,
+  "las_vegas_reports": 363,
+  "top_nevada_cities": [
+    {
+      "city": "Las Vegas",
+      "reports": 363
+    },
+    {
+      "city": "Reno",
+      "reports": 111
+    },
+    {
+      "city": "Henderson",
+      "reports": 54
+    },
+    {
+      "city": "Pahrump",
+      "reports": 18
+    },
+    {
+      "city": "Sparks",
+      "reports": 17
+    },
+    {
+      "city": "North Las Vegas",
+      "reports": 16
+    },
+    {
+      "city": "Elko",
+      "reports": 16
+    },
+    {
+      "city": "Laughlin",
+      "reports": 12
+    }
+  ],
+  "top_nearby_places": [
+    {
+      "city": "Rachel",
+      "state": "NV",
+      "reports": 11
+    },
+    {
+      "city": "Alamo",
+      "state": "NV",
+      "reports": 1
+    },
+    {
+      "city": "Hiko",
+      "state": "NV",
+      "reports": 1
+    },
+    {
+      "city": "Hiko (Outside Of )",
+      "state": "NV",
+      "reports": 1
+    },
+    {
+      "city": "Ash Springs (Near)",
+      "state": "NV",
+      "reports": 1
+    },
+    {
+      "city": "Rachel (Highway 318)",
+      "state": "NV",
+      "reports": 1
+    }
+  ],
+  "top_nearby_shapes": [
+    {
+      "shape": "light",
+      "reports": 4
+    },
+    {
+      "shape": "disk",
+      "reports": 3
+    },
+    {
+      "shape": "unknown",
+      "reports": 3
+    },
+    {
+      "shape": "sphere",
+      "reports": 2
+    },
+    {
+      "shape": "formation",
+      "reports": 1
+    },
+    {
+      "shape": "fireball",
+      "reports": 1
+    }
+  ]
+}

@@ -261,6 +261,27 @@ def write_json(path: Path, data: object) -> None:
         json.dump(data, f, indent=2)
 
 
+def percentile_value(values: list[float], p: float) -> float:
+    if not values:
+        return 0
+    sorted_values = sorted(values)
+    idx = int((len(sorted_values) - 1) * p)
+    return round(sorted_values[idx], 2)
+
+
+def duration_summary(values: list[float]) -> dict[str, float | int]:
+    return {
+        "count": len(values),
+        "median": percentile_value(values, 0.5),
+        "p75": percentile_value(values, 0.75),
+        "p95": percentile_value(values, 0.95),
+    }
+
+
+def era_for(year: int) -> str:
+    return "pre_internet" if year < 1995 else "internet_era"
+
+
 def build() -> None:
     if not RAW_PATH.exists():
         raise SystemExit(f"Missing raw file: {RAW_PATH}")
@@ -277,13 +298,23 @@ def build() -> None:
     by_shape_decade = Counter()
     by_country = Counter()
     by_state = Counter()
+    by_city_state = Counter()
+    city_geo: dict[tuple[str, str], list[float]] = defaultdict(lambda: [0.0, 0.0, 0.0])
+    city_shapes: dict[tuple[str, str], Counter] = defaultdict(Counter)
+    duration_by_shape: dict[str, list[float]] = defaultdict(list)
+    duration_by_era: dict[str, list[float]] = defaultdict(list)
+    shape_by_era = Counter()
+    reports_by_era = Counter()
     word_counts = Counter()
     duration_values = []
     valid_geo_rows = []
+    area51_rows = []
+    nevada_rows = []
     min_year, max_year = 9999, 0
 
     for row in rows:
         year = int(row["year"])
+        era = era_for(year)
         min_year = min(min_year, year)
         max_year = max(max_year, year)
         by_year[year] += 1
@@ -291,15 +322,34 @@ def build() -> None:
         by_shape[str(row["shape_clean"])] += 1
         by_shape_decade[(decade_for(year), str(row["shape_clean"]))] += 1
         by_country[str(row["country"])] += 1
+        reports_by_era[era] += 1
+        shape_by_era[(era, str(row["shape_clean"]))] += 1
         if row["country"] == "us" and row["state"] in US_STATE_POP_2010:
             by_state[str(row["state"])] += 1
+        if row["country"] == "us" and row["state"]:
+            city_key = (str(row["city"]), str(row["state"]))
+            by_city_state[city_key] += 1
+            city_shapes[city_key][str(row["shape_clean"])] += 1
+            if row["state"] == "nv":
+                nevada_rows.append(row)
         if row["duration_seconds"] != "":
-            duration_values.append(float(row["duration_seconds"]))
+            duration = float(row["duration_seconds"])
+            duration_values.append(duration)
+            if duration > 0:
+                duration_by_shape[str(row["shape_clean"])].append(duration)
+                duration_by_era[era].append(duration)
         word_counts.update(words_from_comment(str(row["comments"])))
         lat = parse_float(row["latitude"])
         lon = parse_float(row["longitude"])
         if valid_lat_lon(lat, lon):
             valid_geo_rows.append(row)
+            if row["country"] == "us" and row["state"]:
+                city_key = (str(row["city"]), str(row["state"]))
+                city_geo[city_key][0] += float(lat)
+                city_geo[city_key][1] += float(lon)
+                city_geo[city_key][2] += 1
+            if 36.7 <= float(lat) <= 37.7 and -116.5 <= float(lon) <= -115.0:
+                area51_rows.append(row)
 
     year_data = [{"year": y, "reports": by_year[y]} for y in range(min_year, max_year + 1)]
     heatmap_data = [
@@ -343,6 +393,96 @@ def build() -> None:
                 "reports_per_million": count / pop * 1_000_000,
             }
         )
+
+    city_data = []
+    for (city, state), count in by_city_state.most_common(40):
+        geo = city_geo[(city, state)]
+        lat = None if geo[2] == 0 else round(geo[0] / geo[2], 4)
+        lon = None if geo[2] == 0 else round(geo[1] / geo[2], 4)
+        top_shape, top_shape_count = city_shapes[(city, state)].most_common(1)[0]
+        city_data.append(
+            {
+                "city": city.title(),
+                "state": state.upper(),
+                "state_name": US_STATE_NAMES.get(state, state.upper()),
+                "reports": count,
+                "latitude": lat,
+                "longitude": lon,
+                "top_shape": top_shape,
+                "top_shape_count": top_shape_count,
+            }
+        )
+
+    duration_shape_data = []
+    for shape, count in by_shape.most_common():
+        values = duration_by_shape[shape]
+        if len(values) < 500:
+            continue
+        duration_shape_data.append(
+            {
+                "shape": shape,
+                "reports": count,
+                **duration_summary(values),
+            }
+        )
+    duration_shape_data.sort(key=lambda row: (-float(row["median"]), -int(row["count"])))
+
+    era_names = {
+        "pre_internet": "Pre-internet (<1995)",
+        "internet_era": "Internet era (1995-2014)",
+    }
+    duration_era_shape_data = []
+    for era in ["pre_internet", "internet_era"]:
+        total = reports_by_era[era]
+        top_shape, top_shape_count = Counter(
+            {shape: shape_by_era[(era, shape)] for shape in by_shape}
+        ).most_common(1)[0]
+        duration_era_shape_data.append(
+            {
+                "era": era,
+                "label": era_names[era],
+                "reports": total,
+                "report_share": 0 if not rows else total / len(rows),
+                "top_shape": top_shape,
+                "top_shape_count": top_shape_count,
+                "top_shape_share": 0 if total == 0 else top_shape_count / total,
+                **duration_summary(duration_by_era[era]),
+            }
+        )
+
+    area51_cities = Counter(
+        (str(row["city"]), str(row["state"]))
+        for row in area51_rows
+        if row["country"] == "us"
+    )
+    area51_summary = {
+        "bounds": {
+            "min_latitude": 36.7,
+            "max_latitude": 37.7,
+            "min_longitude": -116.5,
+            "max_longitude": -115.0,
+        },
+        "nearby_reports": len(area51_rows),
+        "nearby_us_reports": sum(1 for row in area51_rows if row["country"] == "us"),
+        "nevada_reports": len(nevada_rows),
+        "las_vegas_reports": sum(1 for row in nevada_rows if row["city"] == "las vegas"),
+        "top_nevada_cities": [
+            {"city": city.title(), "reports": count}
+            for city, count in Counter(str(row["city"]) for row in nevada_rows).most_common(8)
+        ],
+        "top_nearby_places": [
+            {
+                "city": city.title(),
+                "state": state.upper(),
+                "reports": count,
+            }
+            for (city, state), count in area51_cities.most_common(8)
+        ],
+        "top_nearby_shapes": [
+            {"shape": shape, "reports": count}
+            for shape, count in Counter(str(row["shape_clean"]) for row in area51_rows).most_common(6)
+        ],
+    }
 
     hex_totals: dict[str, dict[str, object]] = {}
     hex_years: dict[str, Counter] = defaultdict(Counter)
@@ -411,13 +551,6 @@ def build() -> None:
                 }
             )
 
-    duration_sorted = sorted(duration_values)
-    def percentile(p: float) -> float:
-        if not duration_sorted:
-            return 0
-        idx = int((len(duration_sorted) - 1) * p)
-        return round(duration_sorted[idx], 2)
-
     summary = {
         "raw_rows": sum(1 for _ in RAW_PATH.open(encoding="utf-8", errors="replace")),
         "clean_rows": len(rows),
@@ -427,10 +560,11 @@ def build() -> None:
         "issues": dict(issues),
         "top_country": country_data[0] if country_data else None,
         "top_shape": shape_data[0] if shape_data else None,
+        "us_report_share": 0 if not rows else by_country["us"] / len(rows),
         "duration_seconds": {
-            "median": percentile(0.5),
-            "p95": percentile(0.95),
-            "p99": percentile(0.99),
+            "median": percentile_value(duration_values, 0.5),
+            "p95": percentile_value(duration_values, 0.95),
+            "p99": percentile_value(duration_values, 0.99),
         },
         "top_words": [
             {"word": word, "count": count}
@@ -445,6 +579,10 @@ def build() -> None:
     write_json(SITE_DATA_DIR / "shape_by_decade.json", shape_decade_data)
     write_json(SITE_DATA_DIR / "country_counts.json", country_data)
     write_json(SITE_DATA_DIR / "state_counts.json", state_data)
+    write_json(SITE_DATA_DIR / "city_counts.json", city_data)
+    write_json(SITE_DATA_DIR / "duration_by_shape.json", duration_shape_data)
+    write_json(SITE_DATA_DIR / "duration_by_era_shape.json", duration_era_shape_data)
+    write_json(SITE_DATA_DIR / "area51_summary.json", area51_summary)
     write_json(SITE_DATA_DIR / "hotspots.json", hotspot_rows[:600])
     write_json(SITE_DATA_DIR / "hex_decade_bins.json", decade_bin_rows)
 

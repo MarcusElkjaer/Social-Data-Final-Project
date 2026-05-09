@@ -1,0 +1,154 @@
+[
+  {
+    "shape": "changing",
+    "reports": 1963,
+    "count": 1963,
+    "median": 420.0,
+    "p75": 1440.0,
+    "p95": 7200.0
+  },
+  {
+    "shape": "diamond",
+    "reports": 1178,
+    "count": 1178,
+    "median": 300.0,
+    "p75": 900.0,
+    "p95": 5400.0
+  },
+  {
+    "shape": "disk",
+    "reports": 5213,
+    "count": 5213,
+    "median": 240.0,
+    "p75": 720.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "light",
+    "reports": 16565,
+    "count": 16565,
+    "median": 180.0,
+    "p75": 900.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "triangle",
+    "reports": 7865,
+    "count": 7865,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 3000.0
+  },
+  {
+    "shape": "circle",
+    "reports": 7608,
+    "count": 7607,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "unknown",
+    "reports": 7516,
+    "count": 7514,
+    "median": 180.0,
+    "p75": 900.0,
+    "p95": 4500.0
+  },
+  {
+    "shape": "other",
+    "reports": 5664,
+    "count": 5664,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "sphere",
+    "reports": 5387,
+    "count": 5387,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "oval",
+    "reports": 3733,
+    "count": 3733,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "formation",
+    "reports": 2457,
+    "count": 2457,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 2700.0
+  },
+  {
+    "shape": "cigar",
+    "reports": 2057,
+    "count": 2057,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 2700.0
+  },
+  {
+    "shape": "rectangle",
+    "reports": 1297,
+    "count": 1297,
+    "median": 180.0,
+    "p75": 480.0,
+    "p95": 2700.0
+  },
+  {
+    "shape": "cylinder",
+    "reports": 1283,
+    "count": 1283,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "egg",
+    "reports": 759,
+    "count": 759,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "fireball",
+    "reports": 6208,
+    "count": 6208,
+    "median": 120.0,
+    "p75": 300.0,
+    "p95": 1800.0
+  },
+  {
+    "shape": "teardrop",
+    "reports": 750,
+    "count": 750,
+    "median": 120.0,
+    "p75": 600.0,
+    "p95": 3600.0
+  },
+  {
+    "shape": "chevron",
+    "reports": 952,
+    "count": 952,
+    "median": 60.0,
+    "p75": 300.0,
+    "p95": 1800.0
+  },
+  {
+    "shape": "flash",
+    "reports": 1328,
+    "count": 1327,
+    "median": 30.0,
+    "p75": 360.0,
+    "p95": 3600.0
+  }
+]

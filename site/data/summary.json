@@ -20,6 +20,7 @@
     "shape": "light",
     "reports": 16565
   },
+  "us_report_share": 0.81056117113977,
   "duration_seconds": {
     "median": 180.0,
     "p95": 3600.0,

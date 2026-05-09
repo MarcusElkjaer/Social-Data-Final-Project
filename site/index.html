@@ -10,6 +10,8 @@
     <header class="hero">
       <nav class="topbar" aria-label="Project links">
         <a href="#story">Story</a>
+        <a href="#usa">USA</a>
+        <a href="#duration">Duration</a>
         <a href="#hotspots">Hotspots</a>
         <a href="notebooks/explainer.ipynb">Notebook</a>
       </nav>
@@ -29,6 +31,7 @@
           <p>
             But every point is also a person deciding that something was strange enough to report.
             The data is shaped by population, culture, language, internet access, memory, and geocoding.
+            That is why the story is strongest when we treat UFO sightings as a reporting system.
           </p>
         </div>
         <div class="metric-grid" id="summary-metrics"></div>
@@ -42,6 +45,11 @@
             Maven describes this dataset as sightings between 1949 and 2014, but the raw archived file
             contains earlier reports back to 1906. That mismatch is useful: it reminds us that this is a
             messy historical record, not a perfect measurement instrument.
+          </p>
+          <p>
+            The United States is also not a neutral baseline here. The source pipeline is associated with
+            NUFORC, an English-language, US-centered reporting culture. The map therefore says as much
+            about who reports as it says about what people think they saw.
           </p>
           <div class="warning">
             These are not verified events. They are public reports submitted by people and standardized
@@ -62,6 +70,10 @@
             Reports rise sharply in the 1990s and 2000s. That pattern is consistent with easier online
             reporting and growing visibility of UFO reporting systems, but the chart alone cannot prove
             what caused the rise.
+          </p>
+          <p>
+            This is the key interpretive move: after the web made reporting easier, the archive becomes
+            much denser. A louder archive is not automatically a stranger sky.
           </p>
         </div>
         <div class="panel">
@@ -101,14 +113,19 @@
         </div>
       </section>
 
-      <section class="chapter split">
+      <section class="chapter split" id="usa">
         <div class="copy">
-          <p class="kicker">Raw counts mislead</p>
-          <h2>The United States dominates, but denominator matters.</h2>
+          <p class="kicker">USA reporting machine</p>
+          <h2>The United States dominates, but not because it owns the sky.</h2>
           <p>
-            Raw counts mostly show where the reporting system is strongest. A simple population-normalized
-            view changes the state ranking, although it is still an imperfect denominator for who was outside,
-            watching, and willing to submit a report.
+            About 81% of clean reports are coded as US reports. That is a conclusion about infrastructure:
+            NUFORC visibility, English-language access, population, media culture, and a familiar habit of
+            submitting odd observations to a public archive.
+          </p>
+          <p>
+            Raw counts mostly reward large states. A simple population-normalized view changes the ranking:
+            Washington, Oregon, Montana, Alaska, Maine, Vermont, Arizona, and New Mexico become much more
+            visible once the denominator is added.
           </p>
         </div>
         <div class="panel panel--stack">
@@ -118,6 +135,65 @@
             <button class="mode-button" data-state-mode="reports_per_million">Per million</button>
           </div>
           <svg id="state-bars" class="chart" role="img" aria-label="US state report ranking"></svg>
+        </div>
+      </section>
+
+      <section class="chapter split">
+        <div class="copy">
+          <p class="kicker">Cities and Area 51</p>
+          <h2>The local hotspots are mostly cities, not secret desert mythology.</h2>
+          <p>
+            City rankings pull the map closer to the ground. Seattle, Phoenix, Las Vegas, Los Angeles,
+            San Diego, Portland, Houston, and Chicago are among the largest city-level report clusters.
+          </p>
+          <p>
+            Area 51 is a great cultural symbol, but it is not a huge count in this dataset. The nearby
+            Area 51 bounding region has only about 20 reports, while Las Vegas alone has 363.
+          </p>
+          <div class="callout-grid" id="area51-callout"></div>
+        </div>
+        <div class="panel panel--stack">
+          <h3>Top US city hotspots</h3>
+          <svg id="city-bars" class="chart" role="img" aria-label="Top US city UFO report counts"></svg>
+        </div>
+      </section>
+
+      <section class="chapter split" id="duration">
+        <div class="copy">
+          <p class="kicker">Duration and shape</p>
+          <h2>Some shapes last longer in the story people tell.</h2>
+          <p>
+            Duration is noisy because reports use human estimates, but the pattern is still useful.
+            Among common shapes, changing objects have the longest median duration, while flashes and
+            chevrons tend to be short.
+          </p>
+          <p>
+            That suggests the shape label partly captures observation time: fast events become flashes,
+            while longer uncertain events are easier to describe as changing, lights, disks, or unknowns.
+          </p>
+        </div>
+        <div class="panel panel--stack">
+          <h3>Median duration by common shape</h3>
+          <svg id="duration-bars" class="chart" role="img" aria-label="Median UFO report duration by shape"></svg>
+        </div>
+      </section>
+
+      <section class="chapter split">
+        <div class="copy">
+          <p class="kicker">Before and after the web</p>
+          <h2>The internet era changes both volume and vocabulary.</h2>
+          <p>
+            Before 1995, reports have a median duration around 300 seconds and disk is the leading shape.
+            From 1995 to 2014, the median drops to about 180 seconds and light becomes the dominant label.
+          </p>
+          <p>
+            This does not prove that sightings physically changed. It shows that the reporting environment
+            changed: more people, faster submissions, and more short observations entering the archive.
+          </p>
+        </div>
+        <div class="panel panel--stack">
+          <h3>Era comparison</h3>
+          <div id="era-cards" class="era-grid" aria-label="Pre-internet and internet-era comparison"></div>
         </div>
       </section>
 
@@ -145,6 +221,10 @@
             concentrate over time, or switch to persistence to highlight places that appear across many
             different years.
           </p>
+          <p>
+            The global view is kept as perspective, but the main lesson remains the same: dense reporting
+            often follows people, infrastructure, language, and repeatable reporting pathways.
+          </p>
         </div>
         <div class="map-shell">
           <div class="map-controls">
@@ -167,6 +247,15 @@
           It answers something more measurable: UFO reports are patterned by time, place, language,
           visibility, population, and reporting infrastructure. The mystery is partly in the sky, but
           partly in the reporting system.
+        </p>
+        <div class="panel country-panel">
+          <h3>Global perspective</h3>
+          <svg id="country-bars" class="chart chart--short" role="img" aria-label="Country report counts"></svg>
+        </div>
+        <p>
+          Canada, the UK, Australia, Germany, and unknown-country records are present, but the archive is
+          overwhelmingly American. The gentlest punchline is that Americans may not be uniquely good at
+          spotting aliens; they are extremely good at seeing something weird and finding a form to submit.
         </p>
         <div class="reference-list">
           <a href="https://mavenanalytics.io/data-playground/ufo-sightings">Maven dataset page</a>

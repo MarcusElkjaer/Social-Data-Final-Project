@@ -207,9 +207,19 @@ p {
   font-size: 11px;
 }
 
+.bar-value text {
+  fill: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
 .axis path,
 .axis line {
   stroke: var(--line);
+}
+
+.chart--short {
+  min-height: 300px;
 }
 
 .map-chapter {
@@ -290,6 +300,73 @@ input[type="range"] {
   line-height: 1;
 }
 
+.callout-grid,
+.era-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.callout-grid {
+  margin-top: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mini-metric,
+.era-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.mini-metric strong,
+.era-card strong {
+  display: block;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  line-height: 1;
+}
+
+.mini-metric span,
+.era-card span,
+.era-card small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.era-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.era-card dl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 16px;
+  margin: 18px 0 0;
+}
+
+.era-card dt,
+.era-card dd {
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+.era-card dt {
+  color: var(--muted);
+}
+
+.era-card dd {
+  font-weight: 800;
+  text-align: right;
+}
+
+.country-panel {
+  margin: 28px auto;
+  text-align: left;
+  max-width: 760px;
+}
+
 .tooltip {
   position: absolute;
   pointer-events: none;
@@ -357,6 +434,11 @@ input[type="range"] {
   }
 
   .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .callout-grid,
+  .era-grid {
     grid-template-columns: 1fr;
   }
 

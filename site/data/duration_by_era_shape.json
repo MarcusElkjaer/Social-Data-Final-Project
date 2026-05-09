@@ -1,0 +1,28 @@
+[
+  {
+    "era": "pre_internet",
+    "label": "Pre-internet (<1995)",
+    "reports": 7767,
+    "report_share": 0.096686252053976,
+    "top_shape": "disk",
+    "top_shape_count": 1481,
+    "top_shape_share": 0.19067851165186042,
+    "count": 7767,
+    "median": 300.0,
+    "p75": 900.0,
+    "p95": 7200.0
+  },
+  {
+    "era": "internet_era",
+    "label": "Internet era (1995-2014)",
+    "reports": 72565,
+    "report_share": 0.903313747946024,
+    "top_shape": "light",
+    "top_shape_count": 15634,
+    "top_shape_share": 0.2154482188382829,
+    "count": 72561,
+    "median": 180.0,
+    "p75": 600.0,
+    "p95": 3600.0
+  }
+]

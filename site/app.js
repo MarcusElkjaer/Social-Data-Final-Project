@@ -9,7 +9,12 @@ const files = {
   heatmap: "data/month_hour.json",
   shapes: "data/shape_counts.json",
   shapeDecades: "data/shape_by_decade.json",
+  countries: "data/country_counts.json",
   states: "data/state_counts.json",
+  cities: "data/city_counts.json",
+  durationShapes: "data/duration_by_shape.json",
+  durationEras: "data/duration_by_era_shape.json",
+  area51: "data/area51_summary.json",
   hotspots: "data/hotspots.json",
   hexDecades: "data/hex_decade_bins.json",
   land: "data/land-110m.json"
@@ -23,15 +28,20 @@ Promise.all(Object.values(files).map((path) => d3.json(path))).then((loaded) => 
   renderAnnualLine(data.annual);
   renderHeatmap(data.heatmap);
   renderStateBars(data.states);
+  renderCityBars(data.cities);
+  renderArea51(data.area51);
+  renderDurationBars(data.durationShapes);
+  renderEraCards(data.durationEras);
   renderWords(data.summary.top_words);
+  renderCountryBars(data.countries);
   renderHotspotMap(data.land, data.hexDecades, data.hotspots);
 });
 
 function renderMetrics(summary) {
   const items = [
     { value: fmt(summary.clean_rows), label: "clean report rows" },
+    { value: pct(summary.us_report_share), label: "of reports are coded as United States" },
     { value: `${summary.date_range.min_year}-${summary.date_range.max_year}`, label: "actual raw date range" },
-    { value: fmt(summary.valid_geo_rows), label: "reports with usable coordinates" },
     { value: summary.top_shape.shape, label: `${fmt(summary.top_shape.reports)} reports, most common shape` }
   ];
 
@@ -84,6 +94,17 @@ function renderHeroMap(land, hotspots) {
     .attr("fill-opacity", 0.42);
 }
 
+function shortDuration(seconds) {
+  if (seconds >= 3600) {
+    const hours = seconds / 3600;
+    return `${d3.format(".1f")(hours)}h`;
+  }
+  if (seconds >= 60) {
+    return `${d3.format(".0f")(seconds / 60)}m`;
+  }
+  return `${d3.format(".0f")(seconds)}s`;
+}
+
 function renderShapeBars(data) {
   const top = data.slice(0, 10).reverse();
   const { svg, width, height } = sizeSvg("#shape-bars");
@@ -106,6 +127,46 @@ function renderShapeBars(data) {
     .attr("class", "axis")
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(4).tickFormat(d3.format("~s")));
+
+  svg.append("g")
+    .attr("class", "axis")
+    .attr("transform", `translate(${margin.left},0)`)
+    .call(d3.axisLeft(y).tickSize(0))
+    .call((g) => g.select(".domain").remove());
+}
+
+function renderLabeledBars(selector, data, options) {
+  const { svg, width, height } = sizeSvg(selector);
+  svg.selectAll("*").remove();
+  const margin = options.margin || { top: 8, right: 78, bottom: 30, left: 92 };
+  const maxValue = d3.max(data, options.value) || 1;
+  const x = d3.scaleLinear().domain([0, maxValue]).nice().range([margin.left, width - margin.right]);
+  const y = d3.scaleBand().domain(data.map(options.label)).range([height - margin.bottom, margin.top]).padding(0.22);
+
+  svg.append("g")
+    .attr("fill", options.fill || "#117c78")
+    .selectAll("rect")
+    .data(data)
+    .join("rect")
+    .attr("x", margin.left)
+    .attr("y", (d) => y(options.label(d)))
+    .attr("width", (d) => Math.max(0, x(options.value(d)) - margin.left))
+    .attr("height", y.bandwidth())
+    .attr("rx", 3);
+
+  svg.append("g")
+    .attr("class", "bar-value")
+    .selectAll("text")
+    .data(data)
+    .join("text")
+    .attr("x", (d) => x(options.value(d)) + 7)
+    .attr("y", (d) => y(options.label(d)) + y.bandwidth() / 2 + 4)
+    .text((d) => options.valueLabel(d));
+
+  svg.append("g")
+    .attr("class", "axis")
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(d3.axisBottom(x).ticks(4).tickFormat(options.tickFormat || d3.format("~s")));
 
   svg.append("g")
     .attr("class", "axis")
@@ -230,6 +291,75 @@ function renderStateBars(states) {
       .call((g) => g.select(".domain").remove());
   }
   draw();
+}
+
+function renderCityBars(cities) {
+  const top = cities.slice(0, 12).reverse();
+  renderLabeledBars("#city-bars", top, {
+    label: (d) => `${d.city}, ${d.state}`,
+    value: (d) => d.reports,
+    valueLabel: (d) => fmt(d.reports),
+    fill: "#d65d47",
+    margin: { top: 8, right: 58, bottom: 30, left: 128 },
+    tickFormat: d3.format("~s")
+  });
+}
+
+function renderArea51(area51) {
+  const items = [
+    { value: fmt(area51.nearby_reports), label: "reports near the Area 51 bounding region" },
+    { value: fmt(area51.las_vegas_reports), label: "reports from Las Vegas alone" },
+    { value: fmt(area51.nevada_reports), label: "reports from all of Nevada" }
+  ];
+
+  d3.select("#area51-callout")
+    .selectAll(".mini-metric")
+    .data(items)
+    .join("div")
+    .attr("class", "mini-metric")
+    .html((d) => `<strong>${d.value}</strong><span>${d.label}</span>`);
+}
+
+function renderDurationBars(durationShapes) {
+  const rows = durationShapes.slice(0, 16).reverse();
+  renderLabeledBars("#duration-bars", rows, {
+    label: (d) => d.shape,
+    value: (d) => d.median,
+    valueLabel: (d) => shortDuration(d.median),
+    fill: "#8d6b2f",
+    margin: { top: 8, right: 58, bottom: 30, left: 92 },
+    tickFormat: shortDuration
+  });
+}
+
+function renderEraCards(eras) {
+  d3.select("#era-cards")
+    .selectAll(".era-card")
+    .data(eras)
+    .join("div")
+    .attr("class", "era-card")
+    .html((d) => `
+      <span>${d.label}</span>
+      <strong>${fmt(d.reports)}</strong>
+      <small>reports</small>
+      <dl>
+        <dt>Median duration</dt><dd>${shortDuration(d.median)}</dd>
+        <dt>Top shape</dt><dd>${d.top_shape} (${pct(d.top_shape_share)})</dd>
+        <dt>Archive share</dt><dd>${pct(d.report_share)}</dd>
+      </dl>
+    `);
+}
+
+function renderCountryBars(countries) {
+  const rows = countries.slice(0, 6).reverse();
+  renderLabeledBars("#country-bars", rows, {
+    label: (d) => d.country,
+    value: (d) => d.reports,
+    valueLabel: (d) => fmt(d.reports),
+    fill: "#3f6f9f",
+    margin: { top: 8, right: 76, bottom: 30, left: 132 },
+    tickFormat: d3.format("~s")
+  });
 }
 
 function renderWords(words) {

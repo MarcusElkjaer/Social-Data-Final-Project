@@ -1,0 +1,402 @@
+[
+  {
+    "city": "Seattle",
+    "state": "WA",
+    "state_name": "Washington",
+    "reports": 524,
+    "latitude": 47.6064,
+    "longitude": -122.3308,
+    "top_shape": "light",
+    "top_shape_count": 113
+  },
+  {
+    "city": "Phoenix",
+    "state": "AZ",
+    "state_name": "Arizona",
+    "reports": 450,
+    "latitude": 33.4483,
+    "longitude": -112.0733,
+    "top_shape": "light",
+    "top_shape_count": 90
+  },
+  {
+    "city": "Las Vegas",
+    "state": "NV",
+    "state_name": "Nevada",
+    "reports": 363,
+    "latitude": 36.175,
+    "longitude": -115.1364,
+    "top_shape": "light",
+    "top_shape_count": 68
+  },
+  {
+    "city": "Los Angeles",
+    "state": "CA",
+    "state_name": "California",
+    "reports": 352,
+    "latitude": 34.0522,
+    "longitude": -118.2428,
+    "top_shape": "light",
+    "top_shape_count": 63
+  },
+  {
+    "city": "San Diego",
+    "state": "CA",
+    "state_name": "California",
+    "reports": 336,
+    "latitude": 32.7153,
+    "longitude": -117.1564,
+    "top_shape": "light",
+    "top_shape_count": 78
+  },
+  {
+    "city": "Portland",
+    "state": "OR",
+    "state_name": "Oregon",
+    "reports": 332,
+    "latitude": 45.5236,
+    "longitude": -122.675,
+    "top_shape": "light",
+    "top_shape_count": 77
+  },
+  {
+    "city": "Houston",
+    "state": "TX",
+    "state_name": "Texas",
+    "reports": 294,
+    "latitude": 29.7631,
+    "longitude": -95.3631,
+    "top_shape": "light",
+    "top_shape_count": 55
+  },
+  {
+    "city": "Chicago",
+    "state": "IL",
+    "state_name": "Illinois",
+    "reports": 264,
+    "latitude": 41.85,
+    "longitude": -87.65,
+    "top_shape": "light",
+    "top_shape_count": 36
+  },
+  {
+    "city": "Tucson",
+    "state": "AZ",
+    "state_name": "Arizona",
+    "reports": 241,
+    "latitude": 32.2217,
+    "longitude": -110.9258,
+    "top_shape": "light",
+    "top_shape_count": 52
+  },
+  {
+    "city": "Miami",
+    "state": "FL",
+    "state_name": "Florida",
+    "reports": 231,
+    "latitude": 25.7739,
+    "longitude": -80.1939,
+    "top_shape": "light",
+    "top_shape_count": 44
+  },
+  {
+    "city": "Orlando",
+    "state": "FL",
+    "state_name": "Florida",
+    "reports": 218,
+    "latitude": 28.5381,
+    "longitude": -81.3794,
+    "top_shape": "light",
+    "top_shape_count": 48
+  },
+  {
+    "city": "Albuquerque",
+    "state": "NM",
+    "state_name": "New Mexico",
+    "reports": 213,
+    "latitude": 35.0844,
+    "longitude": -106.6506,
+    "top_shape": "light",
+    "top_shape_count": 40
+  },
+  {
+    "city": "Austin",
+    "state": "TX",
+    "state_name": "Texas",
+    "reports": 212,
+    "latitude": 30.2669,
+    "longitude": -97.7428,
+    "top_shape": "light",
+    "top_shape_count": 35
+  },
+  {
+    "city": "Sacramento",
+    "state": "CA",
+    "state_name": "California",
+    "reports": 201,
+    "latitude": 38.5817,
+    "longitude": -121.4933,
+    "top_shape": "light",
+    "top_shape_count": 38
+  },
+  {
+    "city": "San Francisco",
+    "state": "CA",
+    "state_name": "California",
+    "reports": 186,
+    "latitude": 37.775,
+    "longitude": -122.4183,
+    "top_shape": "light",
+    "top_shape_count": 39
+  },
+  {
+    "city": "San Jose",
+    "state": "CA",
+    "state_name": "California",
+    "reports": 186,
+    "latitude": 37.3394,
+    "longitude": -121.8939,
+    "top_shape": "light",
+    "top_shape_count": 40
+  },
+  {
+    "city": "Denver",
+    "state": "CO",
+    "state_name": "Colorado",
+    "reports": 175,
+    "latitude": 39.7392,
+    "longitude": -104.9842,
+    "top_shape": "light",
+    "top_shape_count": 34
+  },
+  {
+    "city": "San Antonio",
+    "state": "TX",
+    "state_name": "Texas",
+    "reports": 173,
+    "latitude": 29.4239,
+    "longitude": -98.4933,
+    "top_shape": "light",
+    "top_shape_count": 30
+  },
+  {
+    "city": "Myrtle Beach",
+    "state": "SC",
+    "state_name": "South Carolina",
+    "reports": 164,
+    "latitude": 33.6889,
+    "longitude": -78.8869,
+    "top_shape": "light",
+    "top_shape_count": 54
+  },
+  {
+    "city": "Columbus",
+    "state": "OH",
+    "state_name": "Ohio",
+    "reports": 150,
+    "latitude": 39.9611,
+    "longitude": -82.9989,
+    "top_shape": "light",
+    "top_shape_count": 29
+  },
+  {
+    "city": "New York City (Brooklyn)",
+    "state": "NY",
+    "state_name": "New York",
+    "reports": 147,
+    "latitude": 40.7142,
+    "longitude": -74.0064,
+    "top_shape": "light",
+    "top_shape_count": 24
+  },
+  {
+    "city": "Dallas",
+    "state": "TX",
+    "state_name": "Texas",
+    "reports": 139,
+    "latitude": 32.7833,
+    "longitude": -96.8,
+    "top_shape": "light",
+    "top_shape_count": 25
+  },
+  {
+    "city": "Mesa",
+    "state": "AZ",
+    "state_name": "Arizona",
+    "reports": 139,
+    "latitude": 33.4222,
+    "longitude": -111.8219,
+    "top_shape": "light",
+    "top_shape_count": 26
+  },
+  {
+    "city": "Charlotte",
+    "state": "NC",
+    "state_name": "North Carolina",
+    "reports": 139,
+    "latitude": 35.2269,
+    "longitude": -80.8433,
+    "top_shape": "light",
+    "top_shape_count": 31
+  },
+  {
+    "city": "Indianapolis",
+    "state": "IN",
+    "state_name": "Indiana",
+    "reports": 135,
+    "latitude": 39.7683,
+    "longitude": -86.1581,
+    "top_shape": "light",
+    "top_shape_count": 22
+  },
+  {
+    "city": "Vancouver",
+    "state": "WA",
+    "state_name": "Washington",
+    "reports": 135,
+    "latitude": 45.6389,
+    "longitude": -122.6603,
+    "top_shape": "light",
+    "top_shape_count": 25
+  },
+  {
+    "city": "Tinley Park",
+    "state": "IL",
+    "state_name": "Illinois",
+    "reports": 132,
+    "latitude": 41.5733,
+    "longitude": -87.7844,
+    "top_shape": "light",
+    "top_shape_count": 56
+  },
+  {
+    "city": "St. Louis",
+    "state": "MO",
+    "state_name": "Missouri",
+    "reports": 132,
+    "latitude": 38.6272,
+    "longitude": -90.1978,
+    "top_shape": "triangle",
+    "top_shape_count": 22
+  },
+  {
+    "city": "Jacksonville",
+    "state": "FL",
+    "state_name": "Florida",
+    "reports": 131,
+    "latitude": 30.3319,
+    "longitude": -81.6558,
+    "top_shape": "light",
+    "top_shape_count": 21
+  },
+  {
+    "city": "Spokane",
+    "state": "WA",
+    "state_name": "Washington",
+    "reports": 129,
+    "latitude": 47.6589,
+    "longitude": -117.425,
+    "top_shape": "light",
+    "top_shape_count": 23
+  },
+  {
+    "city": "Colorado Springs",
+    "state": "CO",
+    "state_name": "Colorado",
+    "reports": 128,
+    "latitude": 38.8339,
+    "longitude": -104.8208,
+    "top_shape": "light",
+    "top_shape_count": 29
+  },
+  {
+    "city": "Tampa",
+    "state": "FL",
+    "state_name": "Florida",
+    "reports": 127,
+    "latitude": 27.9472,
+    "longitude": -82.4586,
+    "top_shape": "light",
+    "top_shape_count": 16
+  },
+  {
+    "city": "Tacoma",
+    "state": "WA",
+    "state_name": "Washington",
+    "reports": 127,
+    "latitude": 47.2531,
+    "longitude": -122.4431,
+    "top_shape": "light",
+    "top_shape_count": 33
+  },
+  {
+    "city": "Salt Lake City",
+    "state": "UT",
+    "state_name": "Utah",
+    "reports": 126,
+    "latitude": 40.7608,
+    "longitude": -111.8903,
+    "top_shape": "light",
+    "top_shape_count": 22
+  },
+  {
+    "city": "Louisville",
+    "state": "KY",
+    "state_name": "Kentucky",
+    "reports": 124,
+    "latitude": 38.2542,
+    "longitude": -85.7594,
+    "top_shape": "light",
+    "top_shape_count": 28
+  },
+  {
+    "city": "New York City",
+    "state": "NY",
+    "state_name": "New York",
+    "reports": 116,
+    "latitude": 40.7142,
+    "longitude": -74.0064,
+    "top_shape": "light",
+    "top_shape_count": 22
+  },
+  {
+    "city": "Omaha",
+    "state": "NE",
+    "state_name": "Nebraska",
+    "reports": 115,
+    "latitude": 41.2586,
+    "longitude": -95.9375,
+    "top_shape": "light",
+    "top_shape_count": 19
+  },
+  {
+    "city": "Reno",
+    "state": "NV",
+    "state_name": "Nevada",
+    "reports": 111,
+    "latitude": 39.5297,
+    "longitude": -119.8128,
+    "top_shape": "light",
+    "top_shape_count": 26
+  },
+  {
+    "city": "Boise",
+    "state": "ID",
+    "state_name": "Idaho",
+    "reports": 109,
+    "latitude": 43.6136,
+    "longitude": -116.2025,
+    "top_shape": "light",
+    "top_shape_count": 31
+  },
+  {
+    "city": "Pittsburgh",
+    "state": "PA",
+    "state_name": "Pennsylvania",
+    "reports": 108,
+    "latitude": 40.4406,
+    "longitude": -79.9961,
+    "top_shape": "light",
+    "top_shape_count": 17
+  }
+]

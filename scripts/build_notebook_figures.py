@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SITE_DATA = ROOT / "site" / "data"
 FIG_DIR = ROOT / "notebooks" / "figures"
+SITE_FIG_DIR = ROOT / "site" / "notebooks" / "figures"
 
 
 def load(name: str):
@@ -18,8 +19,9 @@ def load(name: str):
 
 
 def write(name: str, svg: str) -> None:
-    FIG_DIR.mkdir(parents=True, exist_ok=True)
-    (FIG_DIR / name).write_text(svg, encoding="utf-8")
+    for fig_dir in [FIG_DIR, SITE_FIG_DIR]:
+        fig_dir.mkdir(parents=True, exist_ok=True)
+        (fig_dir / name).write_text(svg, encoding="utf-8")
 
 
 def axis_label(text: str, x: float, y: float, anchor: str = "middle") -> str:
@@ -143,11 +145,68 @@ def hotspots_svg() -> str:
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}">{"".join(parts)}</svg>'
 
 
+def city_hotspots_svg() -> str:
+    data = load("city_counts.json")[:12]
+    width, height = 900, 440
+    left, right, top, bottom = 132, 36, 42, 36
+    max_v = max(d["reports"] for d in data)
+    bar_h = (height - top - bottom) / len(data)
+    parts = [chart_style(), f'<rect width="{width}" height="{height}" class="bg"/>', f'<text x="{left}" y="26" class="title">Top US city hotspots</text>']
+    for i, d in enumerate(data):
+        y = top + i * bar_h + 4
+        w = d["reports"] / max_v * (width - left - right)
+        label = f'{d["city"]}, {d["state"]}'
+        parts.append(axis_label(label, left - 12, y + bar_h * 0.55, "end"))
+        parts.append(f'<rect x="{left}" y="{y:.1f}" width="{w:.1f}" height="{bar_h-8:.1f}" rx="3" fill="#d65d47"/>')
+        parts.append(axis_label(f"{d['reports']:,}", left + w + 8, y + bar_h * 0.55, "start"))
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}">{"".join(parts)}</svg>'
+
+
+def duration_by_shape_svg() -> str:
+    data = load("duration_by_shape.json")[:16]
+    width, height = 900, 470
+    left, right, top, bottom = 112, 36, 42, 42
+    max_v = max(d["median"] for d in data)
+    bar_h = (height - top - bottom) / len(data)
+
+    def minutes(seconds):
+        return f"{seconds / 60:.0f}m"
+
+    parts = [chart_style(), f'<rect width="{width}" height="{height}" class="bg"/>', f'<text x="{left}" y="26" class="title">Median duration by common shape</text>']
+    for i, d in enumerate(data):
+        y = top + i * bar_h + 4
+        w = d["median"] / max_v * (width - left - right)
+        parts.append(axis_label(d["shape"], left - 12, y + bar_h * 0.55, "end"))
+        parts.append(f'<rect x="{left}" y="{y:.1f}" width="{w:.1f}" height="{bar_h-8:.1f}" rx="3" fill="#8d6b2f"/>')
+        parts.append(axis_label(minutes(d["median"]), left + w + 8, y + bar_h * 0.55, "start"))
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}">{"".join(parts)}</svg>'
+
+
+def era_comparison_svg() -> str:
+    data = load("duration_by_era_shape.json")
+    width, height = 900, 320
+    left, top = 70, 62
+    card_w, card_h = 360, 190
+    parts = [chart_style(), f'<rect width="{width}" height="{height}" class="bg"/>', '<text x="70" y="30" class="title">Before and after the web</text>']
+    for i, d in enumerate(data):
+        x = left + i * (card_w + 70)
+        parts.append(f'<rect x="{x}" y="{top}" width="{card_w}" height="{card_h}" rx="8" fill="#fffdf8" stroke="#d8d0c2"/>')
+        parts.append(axis_label(d["label"], x + 18, top + 30, "start"))
+        parts.append(f'<text x="{x + 18}" y="{top + 76}" fill="#17201d" font="700 34px system-ui, sans-serif">{d["reports"]:,}</text>')
+        parts.append(axis_label("reports", x + 18, top + 98, "start"))
+        parts.append(axis_label(f'Median duration: {d["median"] / 60:.0f}m', x + 18, top + 132, "start"))
+        parts.append(axis_label(f'Top shape: {d["top_shape"]} ({d["top_shape_share"]:.1%})', x + 18, top + 158, "start"))
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}">{"".join(parts)}</svg>'
+
+
 def main() -> None:
     write("annual_reports.svg", annual_svg())
     write("shape_counts.svg", shapes_svg())
     write("month_hour_heatmap.svg", heatmap_svg())
     write("hotspot_persistence.svg", hotspots_svg())
+    write("city_hotspots.svg", city_hotspots_svg())
+    write("duration_by_shape.svg", duration_by_shape_svg())
+    write("era_comparison.svg", era_comparison_svg())
     print(f"Wrote notebook figures to {FIG_DIR}")
 
 

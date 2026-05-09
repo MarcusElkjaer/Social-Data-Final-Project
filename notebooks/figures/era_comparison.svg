@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320">
+    <style>
+      .bg { fill: #fffdf8; }
+      .axis { stroke: #d8d0c2; stroke-width: 1; }
+      .grid { stroke: #eee7da; stroke-width: 1; }
+      .label { fill: #62706c; font: 12px system-ui, sans-serif; }
+      .title { fill: #17201d; font: 700 18px system-ui, sans-serif; }
+      .note { fill: #7a5d2a; font: 700 12px system-ui, sans-serif; }
+    </style>
+    <rect width="900" height="320" class="bg"/><text x="70" y="30" class="title">Before and after the web</text><rect x="70" y="62" width="360" height="190" rx="8" fill="#fffdf8" stroke="#d8d0c2"/><text x="88" y="92" text-anchor="start" class="label">Pre-internet (<1995)</text><text x="88" y="138" fill="#17201d" font="700 34px system-ui, sans-serif">7,767</text><text x="88" y="160" text-anchor="start" class="label">reports</text><text x="88" y="194" text-anchor="start" class="label">Median duration: 5m</text><text x="88" y="220" text-anchor="start" class="label">Top shape: disk (19.1%)</text><rect x="500" y="62" width="360" height="190" rx="8" fill="#fffdf8" stroke="#d8d0c2"/><text x="518" y="92" text-anchor="start" class="label">Internet era (1995-2014)</text><text x="518" y="138" fill="#17201d" font="700 34px system-ui, sans-serif">72,565</text><text x="518" y="160" text-anchor="start" class="label">reports</text><text x="518" y="194" text-anchor="start" class="label">Median duration: 3m</text><text x="518" y="220" text-anchor="start" class="label">Top shape: light (21.5%)</text></svg>
