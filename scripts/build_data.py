@@ -12,7 +12,9 @@ import csv
 import html
 import json
 import math
+import os
 import re
+import time
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -257,8 +259,21 @@ def write_csv(path: Path, rows: list[dict[str, object]], columns: list[str]) -> 
 
 
 def write_json(path: Path, data: object) -> None:
-    with path.open("w", encoding="utf-8") as f:
+    tmp = path.with_suffix(".tmp")
+    with tmp.open("w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
+    for attempt in range(6):
+        try:
+            os.replace(tmp, path)
+            return
+        except PermissionError:
+            if attempt == 5:
+                tmp.unlink(missing_ok=True)
+                raise RuntimeError(
+                    f"Cannot write {path.name} — close any browser tabs or "
+                    "live-server that has the site open, then re-run."
+                ) from None
+            time.sleep(0.4)
 
 
 def percentile_value(values: list[float], p: float) -> float:
@@ -272,6 +287,8 @@ def percentile_value(values: list[float], p: float) -> float:
 def duration_summary(values: list[float]) -> dict[str, float | int]:
     return {
         "count": len(values),
+        "p05": percentile_value(values, 0.05),
+        "p25": percentile_value(values, 0.25),
         "median": percentile_value(values, 0.5),
         "p75": percentile_value(values, 0.75),
         "p95": percentile_value(values, 0.95),

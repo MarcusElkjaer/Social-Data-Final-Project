@@ -11,6 +11,7 @@ const files = {
   shapeDecades: "data/shape_by_decade.json",
   countries: "data/country_counts.json",
   states: "data/state_counts.json",
+  usStates: "data/states-10m.json",
   cities: "data/city_counts.json",
   durationShapes: "data/duration_by_shape.json",
   durationEras: "data/duration_by_era_shape.json",
@@ -28,10 +29,11 @@ Promise.all(Object.values(files).map((path) => d3.json(path))).then((loaded) => 
   renderShapeGroupStack(data.shapes);
   renderAnnualLine(data.annual);
   renderHeatmap(data.heatmap);
-  renderStateBars(data.states);
+  renderStateSection(data.states, data.usStates);
   renderCityBars(data.cities);
   renderArea51(data.area51);
   renderDurationBars(data.durationShapes);
+  renderDurationBoxplot(data.durationShapes);
   renderEraCards(data.durationEras);
   renderWords(data.summary.top_words);
   renderCountryBars(data.countries);
@@ -109,6 +111,7 @@ function shortDuration(seconds) {
 function renderShapeBars(data) {
   const top = data.slice(0, 10).reverse();
   const { svg, width, height } = sizeSvg("#shape-bars");
+  svg.selectAll("*").remove();
   const margin = { top: 8, right: 18, bottom: 28, left: 86 };
   const x = d3.scaleLinear().domain([0, d3.max(top, (d) => d.reports)]).nice().range([margin.left, width - margin.right]);
   const y = d3.scaleBand().domain(top.map((d) => d.shape)).range([height - margin.bottom, margin.top]).padding(0.22);
@@ -134,6 +137,15 @@ function renderShapeBars(data) {
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y).tickSize(0))
     .call((g) => g.select(".domain").remove());
+
+  svg.append("text")
+    .attr("x", width - margin.right)
+    .attr("y", height - 6)
+    .attr("text-anchor", "end")
+    .attr("fill", "#62706c")
+    .attr("font-size", 10)
+    .attr("font-weight", 800)
+    .text("reports");
 }
 
 function renderShapeGroupStack(shapes) {
@@ -217,60 +229,119 @@ function renderLabeledBars(selector, data, options) {
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y).tickSize(0))
     .call((g) => g.select(".domain").remove());
+
+  if (options.xLabel) {
+    svg.append("text")
+      .attr("x", width - margin.right)
+      .attr("y", height - 6)
+      .attr("text-anchor", "end")
+      .attr("fill", "#62706c")
+      .attr("font-size", 10)
+      .attr("font-weight", 800)
+      .text(options.xLabel);
+  }
 }
 
 function renderAnnualLine(data) {
-  const { svg, width, height } = sizeSvg("#annual-line");
-  const margin = { top: 18, right: 24, bottom: 38, left: 52 };
-  const x = d3.scaleLinear().domain(d3.extent(data, (d) => d.year)).range([margin.left, width - margin.right]);
-  const y = d3.scaleLinear().domain([0, d3.max(data, (d) => d.reports)]).nice().range([height - margin.bottom, margin.top]);
-  const line = d3.line()
-    .x((d) => x(d.year))
-    .y((d) => y(d.reports))
-    .curve(d3.curveMonotoneX);
+  let mode = "linear";
+  const buttons = d3.selectAll("[data-annual-scale]");
+  buttons.on("click", function () {
+    mode = this.dataset.annualScale;
+    buttons.classed("active", function () { return this.dataset.annualScale === mode; });
+    draw();
+  });
 
-  svg.append("rect")
-    .attr("x", x(1995))
-    .attr("y", margin.top)
-    .attr("width", x(2005) - x(1995))
-    .attr("height", height - margin.top - margin.bottom)
-    .attr("fill", "#f2d49c")
-    .attr("opacity", 0.45);
+  function draw() {
+    const { svg, width, height } = sizeSvg("#annual-line");
+    svg.selectAll("*").remove();
+    const margin = { top: 18, right: 24, bottom: 44, left: 58 };
+    const x = d3.scaleLinear()
+      .domain(d3.extent(data, (d) => d.year))
+      .range([margin.left, width - margin.right]);
 
-  svg.append("path")
-    .datum(data)
-    .attr("fill", "none")
-    .attr("stroke", "#d65d47")
-    .attr("stroke-width", 3)
-    .attr("d", line);
+    const maxY = d3.max(data, (d) => d.reports) || 1;
+    const y = mode === "log"
+      ? d3.scaleSymlog().constant(1).domain([0, maxY]).range([height - margin.bottom, margin.top])
+      : d3.scaleLinear().domain([0, maxY]).nice().range([height - margin.bottom, margin.top]);
 
-  svg.append("text")
-    .attr("x", x(1995) + 6)
-    .attr("y", margin.top + 18)
-    .attr("fill", "#7a5d2a")
-    .attr("font-size", 12)
-    .attr("font-weight", 800)
-    .text("online reporting era");
+    const line = d3.line()
+      .x((d) => x(d.year))
+      .y((d) => y(d.reports))
+      .curve(d3.curveMonotoneX);
 
-  svg.append("g")
-    .attr("class", "axis")
-    .attr("transform", `translate(0,${height - margin.bottom})`)
-    .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(7));
+    svg.append("rect")
+      .attr("x", x(1995))
+      .attr("y", margin.top)
+      .attr("width", x(2005) - x(1995))
+      .attr("height", height - margin.top - margin.bottom)
+      .attr("fill", "#f2d49c")
+      .attr("opacity", 0.45);
 
-  svg.append("g")
-    .attr("class", "axis")
-    .attr("transform", `translate(${margin.left},0)`)
-    .call(d3.axisLeft(y).ticks(5).tickFormat(d3.format("~s")));
+    svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "#d65d47")
+      .attr("stroke-width", 3)
+      .attr("d", line);
+
+    svg.append("text")
+      .attr("x", x(1995) + 6)
+      .attr("y", margin.top + 18)
+      .attr("fill", "#7a5d2a")
+      .attr("font-size", 12)
+      .attr("font-weight", 800)
+      .text(mode === "log" ? "online reporting era (log scale)" : "online reporting era");
+
+    svg.append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(7));
+
+    const yAxis = mode === "log"
+      ? d3.axisLeft(y)
+        .tickValues([0, 1, 3, 10, 30, 100, 300, 1000, 3000, 10000].filter((t) => t <= maxY))
+        .tickFormat(d3.format("~s"))
+      : d3.axisLeft(y).ticks(5).tickFormat(d3.format("~s"));
+
+    svg.append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(${margin.left},0)`)
+      .call(yAxis);
+
+    // Axis labels
+    svg.append("text")
+      .attr("x", (margin.left + width - margin.right) / 2)
+      .attr("y", height - 8)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#62706c")
+      .attr("font-size", 10)
+      .attr("font-weight", 800)
+      .text("year");
+
+    svg.append("text")
+      .attr("transform", `translate(14,${(margin.top + height - margin.bottom) / 2}) rotate(-90)`)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#62706c")
+      .attr("font-size", 10)
+      .attr("font-weight", 800)
+      .text("reports");
+  }
+
+  draw();
 }
 
 function renderHeatmap(data) {
+  const cbW = 18;
+  const cbAxisW = 44;
   const { svg, width, height } = sizeSvg("#heatmap");
-  const margin = { top: 18, right: 18, bottom: 34, left: 42 };
+  svg.selectAll("*").remove();
+  const margin = { top: 24, right: cbW + cbAxisW + 14, bottom: 34, left: 42 };
   const innerW = width - margin.left - margin.right;
   const innerH = height - margin.top - margin.bottom;
   const cellW = innerW / 24;
   const cellH = innerH / 12;
-  const color = d3.scaleSequentialSqrt(d3.interpolateYlOrRd).domain([0, d3.max(data, (d) => d.reports)]);
+  const maxReports = d3.max(data, (d) => d.reports) || 1;
+  const color = d3.scaleSequentialSqrt(d3.interpolateYlOrRd).domain([0, maxReports]);
 
   svg.append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`)
@@ -293,9 +364,70 @@ function renderHeatmap(data) {
     .attr("transform", `translate(${margin.left},${margin.top})`)
     .call(d3.axisLeft(d3.scaleBand().domain(monthNames).range([0, innerH])).tickSize(0))
     .call((g) => g.select(".domain").remove());
+
+  svg.append("text")
+    .attr("x", margin.left + innerW / 2)
+    .attr("y", height - 8)
+    .attr("text-anchor", "middle")
+    .attr("fill", "#62706c")
+    .attr("font-size", 10)
+    .attr("font-weight", 800)
+    .text("hour of day");
+
+  svg.append("text")
+    .attr("transform", `translate(14,${margin.top + innerH / 2}) rotate(-90)`)
+    .attr("text-anchor", "middle")
+    .attr("fill", "#62706c")
+    .attr("font-size", 10)
+    .attr("font-weight", 800)
+    .text("month");
+
+  // Vertical colorbar in right margin
+  const cbX = width - margin.right + 12;
+  const cbY = margin.top;
+
+  const gradId = "heatmap-gradient";
+  const defs = svg.append("defs");
+  const grad = defs.append("linearGradient")
+    .attr("id", gradId)
+    .attr("x1", "0%").attr("x2", "0%")
+    .attr("y1", "100%").attr("y2", "0%");
+  d3.range(11).forEach((i) => {
+    grad.append("stop")
+      .attr("offset", `${i * 10}%`)
+      .attr("stop-color", color((i / 10) * maxReports));
+  });
+
+  svg.append("text")
+    .attr("x", cbX + cbW / 2)
+    .attr("y", cbY - 8)
+    .attr("text-anchor", "middle")
+    .attr("fill", "#62706c")
+    .attr("font-size", 10)
+    .attr("font-weight", 800)
+    .text("reports");
+
+  svg.append("rect")
+    .attr("x", cbX)
+    .attr("y", cbY)
+    .attr("width", cbW)
+    .attr("height", innerH)
+    .attr("rx", 3)
+    .attr("fill", `url(#${gradId})`)
+    .attr("stroke", "#d8d0c2")
+    .attr("stroke-width", 0.8);
+
+  svg.append("g")
+    .attr("class", "axis")
+    .attr("transform", `translate(${cbX + cbW},${cbY})`)
+    .call(
+      d3.axisRight(d3.scaleLinear().domain([0, maxReports]).range([innerH, 0]))
+        .ticks(5)
+        .tickFormat(d3.format("~s"))
+    );
 }
 
-function renderStateBars(states) {
+function renderStateSection(states, usStatesTopo) {
   let mode = "reports";
   const buttons = d3.selectAll("[data-state-mode]");
   buttons.on("click", function () {
@@ -304,11 +436,13 @@ function renderStateBars(states) {
     draw();
   });
 
-  function draw() {
+  const byName = new Map(states.map((d) => [d.state_name, d]));
+
+  function drawBars() {
     const top = [...states].sort((a, b) => d3.descending(a[mode], b[mode])).slice(0, 12).reverse();
     const { svg, width, height } = sizeSvg("#state-bars");
     svg.selectAll("*").remove();
-    const margin = { top: 8, right: 58, bottom: 30, left: 52 };
+    const margin = { top: 8, right: 58, bottom: 40, left: 52 };
     const x = d3.scaleLinear().domain([0, d3.max(top, (d) => d[mode])]).nice().range([margin.left, width - margin.right]);
     const y = d3.scaleBand().domain(top.map((d) => d.state)).range([height - margin.bottom, margin.top]).padding(0.2);
 
@@ -333,8 +467,112 @@ function renderStateBars(states) {
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(y).tickSize(0))
       .call((g) => g.select(".domain").remove());
+
+    svg.append("text")
+      .attr("x", width - margin.right)
+      .attr("y", height - 6)
+      .attr("text-anchor", "end")
+      .attr("fill", "#62706c")
+      .attr("font-size", 10)
+      .attr("font-weight", 800)
+      .text(mode === "reports" ? "reports" : "reports per million");
   }
+
+  function drawMap() {
+    const { svg, width, height } = sizeSvg("#state-map");
+    svg.selectAll("*").remove();
+    const margin = { top: 10, right: 14, bottom: 44, left: 14 };
+    const innerW = width - margin.left - margin.right;
+    const innerH = height - margin.top - margin.bottom;
+
+    const statesFeature = topojson.feature(usStatesTopo, usStatesTopo.objects.states);
+    const projection = d3.geoAlbersUsa().fitSize([innerW, innerH], statesFeature);
+    const path = d3.geoPath(projection);
+
+    const value = (name) => {
+      const row = byName.get(name);
+      if (!row) return null;
+      return mode === "reports" ? row.reports : row.reports_per_million;
+    };
+    const maxValue = d3.max(statesFeature.features, (f) => value(f.properties?.name)) || 1;
+
+    const color = mode === "reports"
+      ? d3.scaleSequentialSqrt(d3.interpolateBlues).domain([0, maxValue])
+      : d3.scaleSequentialSqrt(d3.interpolateOrRd).domain([0, maxValue]);
+
+    const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+    g.append("g")
+      .selectAll("path")
+      .data(statesFeature.features)
+      .join("path")
+      .attr("d", path)
+      .attr("fill", (f) => {
+        const v = value(f.properties?.name);
+        return v == null ? "#efeae0" : color(v);
+      })
+      .attr("stroke", "#ffffff")
+      .attr("stroke-width", 1)
+      .append("title")
+      .text((f) => {
+        const name = f.properties?.name || "";
+        const v = value(name);
+        if (v == null) return name;
+        return mode === "reports"
+          ? `${name}: ${fmt(v)} reports`
+          : `${name}: ${d3.format(".0f")(v)} per million`;
+      });
+
+    // Legend
+    const legendW = Math.min(280, innerW * 0.6);
+    const legendH = 10;
+    const legendX = margin.left;
+    const legendY = height - margin.bottom + 18;
+    const gradId = `state-legend-${mode}`;
+
+    const defs = svg.append("defs");
+    const grad = defs.append("linearGradient")
+      .attr("id", gradId)
+      .attr("x1", "0%").attr("x2", "100%")
+      .attr("y1", "0%").attr("y2", "0%");
+    d3.range(11).forEach((i) => {
+      grad.append("stop")
+        .attr("offset", `${i * 10}%`)
+        .attr("stop-color", color((i / 10) * maxValue));
+    });
+
+    svg.append("rect")
+      .attr("x", legendX)
+      .attr("y", legendY)
+      .attr("width", legendW)
+      .attr("height", legendH)
+      .attr("rx", 3)
+      .attr("fill", `url(#${gradId})`)
+      .attr("stroke", "#d8d0c2")
+      .attr("stroke-width", 0.8);
+
+    svg.append("g")
+      .attr("class", "axis")
+      .attr("transform", `translate(${legendX},${legendY + legendH})`)
+      .call(d3.axisBottom(d3.scaleLinear().domain([0, maxValue]).range([0, legendW])).ticks(4).tickFormat(d3.format("~s")));
+
+    svg.append("text")
+      .attr("x", legendX + legendW)
+      .attr("y", legendY - 6)
+      .attr("text-anchor", "end")
+      .attr("fill", "#62706c")
+      .attr("font-size", 10)
+      .attr("font-weight", 800)
+      .text(mode === "reports" ? "reports" : "reports per million");
+  }
+
+  function draw() {
+    drawBars();
+    drawMap();
+  }
+
   draw();
+  window.addEventListener("resize", debounce(draw, 150));
 }
 
 function renderCityBars(cities) {
@@ -345,7 +583,8 @@ function renderCityBars(cities) {
     valueLabel: (d) => fmt(d.reports),
     fill: "#d65d47",
     margin: { top: 8, right: 58, bottom: 30, left: 128 },
-    tickFormat: d3.format("~s")
+    tickFormat: d3.format("~s"),
+    xLabel: "reports"
   });
 }
 
@@ -372,8 +611,112 @@ function renderDurationBars(durationShapes) {
     valueLabel: (d) => shortDuration(d.median),
     fill: "#8d6b2f",
     margin: { top: 8, right: 58, bottom: 30, left: 92 },
-    tickFormat: shortDuration
+    tickFormat: shortDuration,
+    xLabel: "median duration"
   });
+}
+
+function renderDurationBoxplot(durationShapes) {
+  const rows = durationShapes
+    .filter((d) => d.p05 != null && d.p25 != null && d.median != null && d.p75 != null && d.p95 != null)
+    .slice(0, 14)
+    .reverse();
+
+  const { svg, width, height } = sizeSvg("#duration-box");
+  svg.selectAll("*").remove();
+
+  const margin = { top: 22, right: 24, bottom: 46, left: 92 };
+  const innerW = width - margin.left - margin.right;
+  const innerH = height - margin.top - margin.bottom;
+
+  const minX = d3.min(rows, (d) => Math.max(1, +d.p05)) || 1;
+  const maxX = d3.max(rows, (d) => Math.max(1, +d.p95)) || 10;
+  const x = d3.scaleLog().domain([minX, maxX]).range([0, innerW]).clamp(true);
+  const y = d3.scaleBand().domain(rows.map((d) => d.shape)).range([0, innerH]).padding(0.25);
+
+  const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+  const midY = (d) => y(d.shape) + y.bandwidth() / 2;
+
+  // Whiskers (p05–p95)
+  g.append("g")
+    .attr("stroke", "#8d6b2f")
+    .attr("stroke-width", 2)
+    .attr("stroke-linecap", "round")
+    .selectAll("line")
+    .data(rows)
+    .join("line")
+    .attr("x1", (d) => x(Math.max(1, +d.p05)))
+    .attr("x2", (d) => x(Math.max(1, +d.p95)))
+    .attr("y1", (d) => midY(d))
+    .attr("y2", (d) => midY(d))
+    .attr("opacity", 0.55);
+
+  // Caps at p05 / p95
+  g.append("g")
+    .attr("stroke", "#8d6b2f")
+    .attr("stroke-width", 2)
+    .selectAll("path")
+    .data(rows)
+    .join("path")
+    .attr("d", (d) => {
+      const cy = midY(d);
+      const cap = y.bandwidth() * 0.42;
+      const xL = x(Math.max(1, +d.p05));
+      const xR = x(Math.max(1, +d.p95));
+      return `M${xL},${cy - cap / 2}L${xL},${cy + cap / 2}M${xR},${cy - cap / 2}L${xR},${cy + cap / 2}`;
+    })
+    .attr("opacity", 0.75);
+
+  // Boxes (p25–p75)
+  g.append("g")
+    .selectAll("rect")
+    .data(rows)
+    .join("rect")
+    .attr("x", (d) => x(Math.max(1, +d.p25)))
+    .attr("y", (d) => y(d.shape))
+    .attr("width", (d) => Math.max(1, x(Math.max(1, +d.p75)) - x(Math.max(1, +d.p25))))
+    .attr("height", y.bandwidth())
+    .attr("rx", 3)
+    .attr("fill", "rgba(141, 107, 47, 0.22)")
+    .attr("stroke", "#8d6b2f")
+    .attr("stroke-width", 1.2);
+
+  // Median line
+  g.append("g")
+    .attr("stroke", "#8d6b2f")
+    .attr("stroke-width", 2.2)
+    .selectAll("line")
+    .data(rows)
+    .join("line")
+    .attr("x1", (d) => x(Math.max(1, +d.median)))
+    .attr("x2", (d) => x(Math.max(1, +d.median)))
+    .attr("y1", (d) => y(d.shape) + 2)
+    .attr("y2", (d) => y(d.shape) + y.bandwidth() - 2);
+
+  svg.append("text")
+    .attr("x", margin.left)
+    .attr("y", 14)
+    .attr("fill", "#62706c")
+    .attr("font-size", 11)
+    .attr("font-weight", 800)
+    .text("box = p25–p75, whiskers = p05–p95 (log scale)");
+
+  const candidateTicks = [1, 3, 10, 30, 60, 180, 600, 1800, 3600, 10800, 21600, 43200, 86400]
+    .filter((t) => t >= minX && t <= maxX);
+  const maxTicks = 8;
+  const step = Math.max(1, Math.ceil(candidateTicks.length / maxTicks));
+  const tickValues = candidateTicks.filter((_, i) => i % step === 0);
+
+  svg.append("g")
+    .attr("class", "axis")
+    .attr("transform", `translate(${margin.left},${height - margin.bottom})`)
+    .call(d3.axisBottom(x).tickValues(tickValues).tickSizeOuter(0).tickFormat(shortDuration));
+
+  svg.append("g")
+    .attr("class", "axis")
+    .attr("transform", `translate(${margin.left},${margin.top})`)
+    .call(d3.axisLeft(y).tickSize(0))
+    .call((gg) => gg.select(".domain").remove());
 }
 
 function renderEraCards(eras) {
@@ -402,7 +745,8 @@ function renderCountryBars(countries) {
     valueLabel: (d) => fmt(d.reports),
     fill: "#3f6f9f",
     margin: { top: 8, right: 76, bottom: 30, left: 132 },
-    tickFormat: d3.format("~s")
+    tickFormat: d3.format("~s"),
+    xLabel: "reports"
   });
 }
 

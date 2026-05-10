@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Seeing Things</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=10">
   </head>
   <body>
     <header class="hero">
@@ -54,10 +54,12 @@
         <div class="metric-grid" id="summary-metrics"></div>
       </section>
 
-      <section class="chapter split" id="shapes">
-        <div class="copy">
+      <section class="chapter split split--side" id="shapes">
+        <div class="split-head">
           <p class="kicker">Data reality check</p>
           <h2>This is report data, not alien data.</h2>
+        </div>
+        <div class="copy">
           <p>
             The dataset's official description covers 1949-2014, but the raw archive reaches back to 1906,
             which immediately signals that this is a living, imperfect ledger rather than a controlled
@@ -157,10 +159,12 @@
         </div>
       </section>
 
-      <section class="chapter split">
-        <div class="copy">
+      <section class="chapter split split--side">
+        <div class="split-head">
           <p class="kicker">Time changed everything</p>
           <h2>The sky gets louder in the internet era.</h2>
+        </div>
+        <div class="copy">
           <p>
             For most of the twentieth century the archive stays thin: dozens of reports per year, a
             few hundred at most. Then 1995 arrives and the count jumps from 421 to 1,078 in a single
@@ -178,10 +182,14 @@
         </div>
         <div class="panel">
           <h3>Reports by year</h3>
+          <div class="toggle-row" role="group" aria-label="Annual chart scale">
+            <button class="mode-button active" data-annual-scale="linear">Linear</button>
+            <button class="mode-button" data-annual-scale="log">Log</button>
+          </div>
           <svg id="annual-line" class="chart" role="img" aria-label="Line chart of UFO reports by year"></svg>
           <p class="figure-note">
-            Figure 2. The mid-1990s jump is the central clue: the archive gets louder when reporting becomes easier,
-            so the trend is best interpreted as infrastructure growth.
+            Figure 2. The mid-1990s jump is the central clue: the archive gets louder when reporting becomes easier.
+            Use the log toggle to make early decades visible without flattening them into the baseline.
           </p>
         </div>
         <div class="full-row">
@@ -309,10 +317,12 @@
         </div>
       </section>
 
-      <section class="chapter split" id="usa">
-        <div class="copy">
+      <section class="chapter split split--side" id="usa">
+        <div class="split-head">
           <p class="kicker">USA reporting machine</p>
           <h2>The United States dominates, but not because it owns the sky.</h2>
+        </div>
+        <div class="copy">
           <p>
             About 81% of geo-coded reports, 65,114 entries, are tagged to the United States. The next
             largest contributors are Canada (3,000), the UK (1,905), Australia (538), and Germany (105).
@@ -342,9 +352,11 @@
             <button class="mode-button" data-state-mode="reports_per_million">Per million</button>
           </div>
           <svg id="state-bars" class="chart" role="img" aria-label="US state report ranking"></svg>
+          <h3 class="panel-subtitle">State choropleth</h3>
+          <svg id="state-map" class="chart chart--short" role="img" aria-label="US state choropleth map of UFO reports"></svg>
           <p class="figure-note">
-            Figure 5. Raw counts mostly reward large populations. The normalized view is more revealing because it
-            shows where reporting is dense relative to how many people live there.
+            Figure 5. Raw counts mostly reward large populations. Switching to per-million reshuffles the story by
+            comparing states on a common denominator. The choropleth mirrors the same toggle geographically.
           </p>
         </div>
         <div class="full-row">
@@ -486,9 +498,12 @@
         <div class="panel panel--stack">
           <h3>Median duration by common shape</h3>
           <svg id="duration-bars" class="chart" role="img" aria-label="Median UFO report duration by shape"></svg>
+          <h3 class="panel-subtitle">Duration distribution (log scale)</h3>
+          <svg id="duration-box" class="chart chart--short" role="img" aria-label="Box plot of UFO report durations by shape on a log-scaled axis"></svg>
           <p class="figure-note">
-            Figure 8. Duration and shape belong together: longer sightings give witnesses more time to assign a
-            complex shape, while short events are more likely to become flashes or fireballs.
+            Figure 8. Medians hide how wide these distributions are. The log-scale box plot shows that duration
+            estimates span seconds to hours; longer sightings give witnesses more time to assign complex shapes,
+            while short events become flashes or fireballs.
           </p>
         </div>
         <div class="full-row">
@@ -726,6 +741,6 @@
 
     <script src="assets/d3.v7.min.js"></script>
     <script src="assets/topojson-client.min.js"></script>
-    <script src="app.js"></script>
+    <script src="app.js?v=7"></script>
   </body>
 </html>
