@@ -75,6 +75,8 @@ def annual_svg() -> str:
       {"".join(ticks)}
       <rect x="{band_x:.1f}" y="{top}" width="{band_w:.1f}" height="{height-top-bottom}" fill="#f2d49c" opacity="0.45"/>
       <text x="{band_x + 8:.1f}" y="{top + 22}" class="note">online reporting era</text>
+      <line x1="{band_x:.1f}" y1="{top}" x2="{band_x:.1f}" y2="{height-bottom}" stroke="#8d6b2f" stroke-width="2" stroke-dasharray="4 4"/>
+      <text x="{band_x + 8:.1f}" y="{height - bottom - 10}" class="note">1995 split</text>
       <polyline points="{points}" fill="none" stroke="#d65d47" stroke-width="3"/>
       <line x1="{left}" y1="{height-bottom}" x2="{width-right}" y2="{height-bottom}" class="axis"/>
       <line x1="{left}" y1="{top}" x2="{left}" y2="{height-bottom}" class="axis"/>
@@ -94,6 +96,52 @@ def shapes_svg() -> str:
         parts.append(axis_label(d["shape"], left - 12, y + bar_h * 0.55, "end"))
         parts.append(f'<rect x="{left}" y="{y:.1f}" width="{w:.1f}" height="{bar_h-8:.1f}" rx="3" fill="#117c78"/>')
         parts.append(axis_label(f"{d['reports']:,}", left + w + 8, y + bar_h * 0.55, "start"))
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}">{"".join(parts)}</svg>'
+
+
+def shape_groups_svg() -> str:
+    data = load("shape_counts.json")
+    counts = {d["shape"]: d["reports"] for d in data}
+    total = sum(counts.values())
+    groups = [
+        ("lights / flashes", ["light", "fireball", "flash"], "#d65d47"),
+        ("round forms", ["circle", "sphere", "disk", "oval", "egg"], "#117c78"),
+        ("uncertain labels", ["unknown", "other", "changing", "formation", "teardrop"], "#8d6b2f"),
+        ("structured forms", ["triangle", "rectangle", "diamond", "chevron", "cylinder", "cigar", "cross", "cone"], "#3f6f9f"),
+    ]
+    rows = []
+    for label, shapes, color in groups:
+        reports = sum(counts.get(shape, 0) for shape in shapes)
+        rows.append((label, reports, reports / total, color))
+    rows.sort(key=lambda row: row[1], reverse=True)
+
+    width, height = 900, 270
+    left, right, top = 70, 70, 78
+    bar_w, bar_h = width - left - right, 36
+    parts = [
+        chart_style(),
+        f'<rect width="{width}" height="{height}" class="bg"/>',
+        f'<text x="{left}" y="30" class="title">Shape labels grouped by visual impression</text>',
+        axis_label("Broad analytical grouping of reported labels, not proof of physical object type.", left, 54, "start"),
+    ]
+    x = left
+    for label, reports, share, color in rows:
+        w = share * bar_w
+        parts.append(f'<rect x="{x:.1f}" y="{top}" width="{w:.1f}" height="{bar_h}" fill="{color}"/>')
+        if w > 95:
+            parts.append(f'<text x="{x + w / 2:.1f}" y="{top + 23}" text-anchor="middle" fill="#fffdf8" font="700 12px system-ui, sans-serif">{share:.1%}</text>')
+        x += w
+    parts.append(f'<rect x="{left}" y="{top}" width="{bar_w}" height="{bar_h}" fill="none" stroke="#d8d0c2"/>')
+
+    legend_y = top + 70
+    for i, (label, reports, share, color) in enumerate(rows):
+        col = i % 2
+        row = i // 2
+        lx = left + col * 390
+        ly = legend_y + row * 44
+        parts.append(f'<rect x="{lx}" y="{ly}" width="13" height="13" rx="3" fill="{color}"/>')
+        parts.append(axis_label(label, lx + 22, ly + 12, "start"))
+        parts.append(axis_label(f"{reports:,} reports ({share:.1%})", lx + 22, ly + 31, "start"))
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}">{"".join(parts)}</svg>'
 
 
@@ -202,6 +250,7 @@ def era_comparison_svg() -> str:
 def main() -> None:
     write("annual_reports.svg", annual_svg())
     write("shape_counts.svg", shapes_svg())
+    write("shape_groups.svg", shape_groups_svg())
     write("month_hour_heatmap.svg", heatmap_svg())
     write("hotspot_persistence.svg", hotspots_svg())
     write("city_hotspots.svg", city_hotspots_svg())

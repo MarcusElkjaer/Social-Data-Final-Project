@@ -25,6 +25,7 @@ Promise.all(Object.values(files).map((path) => d3.json(path))).then((loaded) => 
   renderMetrics(data.summary);
   renderHeroMap(data.land, data.hotspots);
   renderShapeBars(data.shapes);
+  renderShapeGroupStack(data.shapes);
   renderAnnualLine(data.annual);
   renderHeatmap(data.heatmap);
   renderStateBars(data.states);
@@ -133,6 +134,49 @@ function renderShapeBars(data) {
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y).tickSize(0))
     .call((g) => g.select(".domain").remove());
+}
+
+function renderShapeGroupStack(shapes) {
+  const groups = [
+    { label: "lights / flashes", shapes: ["light", "fireball", "flash"], fill: "#d65d47" },
+    { label: "round forms", shapes: ["circle", "sphere", "disk", "oval", "egg"], fill: "#117c78" },
+    { label: "uncertain labels", shapes: ["unknown", "other", "changing", "formation", "teardrop"], fill: "#8d6b2f" },
+    { label: "structured forms", shapes: ["triangle", "rectangle", "diamond", "chevron", "cylinder", "cigar", "cross", "cone"], fill: "#3f6f9f" }
+  ];
+  const counts = new Map(shapes.map((d) => [d.shape, d.reports]));
+  const total = d3.sum(shapes, (d) => d.reports);
+  const rows = groups
+    .map((group) => ({
+      ...group,
+      reports: d3.sum(group.shapes, (shape) => counts.get(shape) || 0)
+    }))
+    .sort((a, b) => b.reports - a.reports);
+
+  const stack = d3.select("#shape-group-stack");
+  stack.selectAll("*").remove();
+
+  stack.append("div")
+    .attr("class", "shape-stack__bar")
+    .selectAll("div")
+    .data(rows)
+    .join("div")
+    .attr("class", "shape-stack__segment")
+    .style("width", (d) => `${(d.reports / total) * 100}%`)
+    .style("background", (d) => d.fill)
+    .attr("title", (d) => `${d.label}: ${fmt(d.reports)} reports (${pct(d.reports / total)})`);
+
+  stack.append("div")
+    .attr("class", "shape-stack__legend")
+    .selectAll("div")
+    .data(rows)
+    .join("div")
+    .attr("class", "shape-stack__item")
+    .html((d) => `
+      <span class="shape-stack__swatch" style="background:${d.fill}"></span>
+      <span class="shape-stack__label">${d.label}</span>
+      <strong>${pct(d.reports / total)}</strong>
+      <small>${fmt(d.reports)}</small>
+    `);
 }
 
 function renderLabeledBars(selector, data, options) {
