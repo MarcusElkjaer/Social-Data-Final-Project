@@ -196,26 +196,6 @@ p {
   font-weight: 700;
 }
 
-.interpretation {
-  margin-top: 18px;
-  border-left: 4px solid var(--teal);
-  background: #edf7f4;
-  padding: 16px 18px;
-  border-radius: 0 8px 8px 0;
-  color: #23433f;
-  font-weight: 700;
-  line-height: 1.55;
-}
-
-.interpretation--center {
-  max-width: 820px;
-  margin-right: auto;
-  margin-left: auto;
-  border-top: 4px solid var(--teal);
-  border-left: 0;
-  border-radius: 8px;
-}
-
 .chart {
   width: 100%;
   min-height: 360px;
